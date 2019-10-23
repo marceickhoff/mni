@@ -34,10 +34,10 @@
   },
   "license": "GPL-3.0",
   "scripts": {
-    "build:prod": "webpack --config webpack.prod.js --display=minimal",
-    "build:dev": "webpack --config webpack.dev.js --display=minimal",
-    "build": "npm run build:prod & npm run build:dev",
-    "watch": "chokidar \"lib/**/*\" -c \"npm run build\"",
+    "build:prod": "webpack --mode production --progress",
+    "build:dev": "webpack --mode development --progress",
+    "build": "webpack --progress",
+    "watch": "chokidar \"lib/**/*\" -c \"webpack --display=minimal\"",
     "prepublish": "npm run build"
   },
   "files": [
