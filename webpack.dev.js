@@ -1,20 +1,16 @@
-const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const merge = require('webpack-merge');
-const common = require('./webpack.common.js');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const merge = require("webpack-merge");
+const common = require("./webpack.common.js");
+const loaders = require("./webpack.loaders.js");
 
-module.exports = merge.smart(common, {
-	mode: "development",
+module.exports = merge.smart(common, loaders("development"), {
 	output: {
-		filename: 'js/[name].js'
+		filename: "js/[name].js"
 	},
 	plugins: [
 		new MiniCssExtractPlugin({
-			filename: 'css/[name].css'
+			filename: "css/[name].css"
 		}),
 	],
-	devtool: "source-map",
-	resolve: {
-		modules: [path.resolve("lib/js/modules"), "node_modules"]
-	}
+	devtool: "source-map"
 });

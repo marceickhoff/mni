@@ -1,51 +1,18 @@
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
-const autoprefixer = require("autoprefixer");
-const mqpacker = require("mqpacker");
-const merge = require('webpack-merge');
-const common = require('./webpack.common.js');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+const merge = require("webpack-merge");
+const common = require("./webpack.common.js");
+const loaders = require("./webpack.loaders.js");
 
-module.exports = merge.smart(common, {
-	mode: "production",
+module.exports = merge.smart(common, loaders("production"), {
 	output: {
-		filename: 'js/[name].min.js'
+		filename: "js/[name].min.js"
 	},
 	plugins: [
 		new MiniCssExtractPlugin({
-			filename: 'css/[name].min.css'
+			filename: "css/[name].min.css"
 		}),
 	],
-	module: {
-		rules: [
-			{
-				test: /\.s[ac]ss$/,
-				use: [
-					{
-						loader: MiniCssExtractPlugin.loader,
-					},
-					{
-						loader: 'css-loader'
-					},
-					{
-						loader: 'postcss-loader',
-						options: {
-							ident: 'postcss',
-							plugins: [autoprefixer, mqpacker]
-						}
-					},
-					{
-						loader: 'clean-css-loader',
-						options: {
-							all: true
-						}
-					},
-					{
-						loader: "sass-loader"
-					}
-				]
-			}
-		],
-	},
 	optimization: {
 		minimizer: [
 			new TerserPlugin({
