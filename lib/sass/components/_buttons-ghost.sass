@@ -1,0 +1,52 @@
+//----------------------------------------------------------------------------------------------------------------------
+// GHOST BUTTONS
+//
+// Requires _buttons.sass
+// Ghost buttons have a transparent background and a border around them. They typically represent secondary actions.
+//----------------------------------------------------------------------------------------------------------------------
+
+.button
+	&.ghost
+		background: none
+		border: $button-border-width $button-border-style $color-base
+		+border-padding($button-border-width, rhythm(1 2))
+		color: $color-base
+
+		// Compact ("small") button
+		&.compact
+			+border-padding($button-border-width, rhythm(.5 1))
+
+		// Colors
+		&.canvas
+			border-color: $color-canvas
+			color: $color-canvas
+		&.error
+			border-color: $color-error
+			color: $color-error
+		&.warning
+			border-color: $color-warning
+			color: $color-warning
+		&.success
+			border-color: $color-success
+			color: $color-success
+		&.notice
+			border-color: $color-notice
+			color: $color-notice
+		&.muted, &[disabled]
+			background: none !important
+			border-color: $color-muted
+			color: $color-muted
+
+		// States
+		&:hover
+			background: rgba($color-base, .1)
+			&.canvas
+				background: rgba($color-canvas, .1)
+			&.error
+				background: rgba($color-error, .1)
+			&.warning
+				background: rgba($color-warning, .1)
+			&.success
+				background: rgba($color-success, .1)
+			&.notice
+				background: rgba($color-notice, .1)

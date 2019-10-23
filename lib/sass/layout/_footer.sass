@@ -1,0 +1,45 @@
+//----------------------------------------------------------------------------------------------------------------------
+// FOOTER
+//
+// Main footer that usually sits at the bottom of the page and usually contains meta links and contact info.
+//----------------------------------------------------------------------------------------------------------------------
+
+// Main footer container
+.footer
+	@extend %viewport-padding
+
+	// Apply padding to wrapper
+	.wrapper
+		padding: rhythm(5) 0
+
+		// Large viewport and up
+		+media(">=", $breakpoint-l)
+			padding: rhythm(6) 0
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// FOOTER NAVIGATION
+//
+// Navigation list inside the footer.
+//----------------------------------------------------------------------------------------------------------------------
+
+// Nav container
+.footer-nav
+	// Empty
+
+// Nav headline
+.footer-nav-headline
+	+headline
+	margin-bottom: rhythm(1)
+
+// Nav list
+.footer-nav-list
+	// Empty
+
+// Item inside nav list
+.footer-nav-item
+	// Empty
+
+// Link inside nav item
+.footer-nav-link
+	padding: rhythm(.5) 0

@@ -1,0 +1,57 @@
+//----------------------------------------------------------------------------------------------------------------------
+// BUTTONS
+//
+// Default buttons. These represent primary actions.
+// Since buttons are often times meticulously styled, the button mixin is split into 3 separate files. This is the
+// base file that is required for the other button styles to work.
+//----------------------------------------------------------------------------------------------------------------------
+
+.button
+	background: $color-base
+	border: none
+	padding: rhythm(1 2)
+	color: $color-canvas
+	font-family: $button-font-stack
+	font-size: $button-font-size
+	font-weight: $button-font-weight
+	line-height: 1
+	cursor: pointer
+
+	// Compact ("small") button
+	&.compact
+		+padding(rhythm(.5 1))
+
+	// Colors
+	&.canvas
+		background: $color-canvas
+		color: $color-base
+	&.error
+		background: $color-error
+		color: $color-error-contrast
+	&.warning
+		background: $color-warning
+		color: $color-warning-contrast
+	&.success
+		background: $color-success
+		color: $color-success-contrast
+	&.notice
+		background: $color-notice
+		color: $color-notice-contrast
+	&.muted, &[disabled]
+		background: $color-muted !important
+		color: $color-muted-contrast !important
+		cursor: not-allowed
+
+	// States
+	&:hover
+		background: pitch($color-base, 20)
+		&.canvas
+			background: pitch($color-base, 90)
+		&.error
+			background: pitch($color-error, 20)
+		&.warning
+			background: pitch($color-warning, 20)
+		&.success
+			background: pitch($color-success, 20)
+		&.notice
+			background: pitch($color-notice, 20)

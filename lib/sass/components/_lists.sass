@@ -1,0 +1,81 @@
+//----------------------------------------------------------------------------------------------------------------------
+// LISTS
+//----------------------------------------------------------------------------------------------------------------------
+
+.list
+
+	// List items have padding by default
+	// This behaviour can be disabled by adding the `.compact` class
+	&:not(.compact)
+		> *
+			+padding(rhythm(.5) null)
+		> dt
+			padding-bottom: 0
+		> dd
+			padding-top: 0
+
+	// Bordered lists will display horizontal lines between items
+	&.bordered
+		padding: 0 // Move padding to individual elements
+		> *
+			// Compensate parent left and right border
+			+border-padding($border-width, (null, rhythm(1)))
+
+			// Divider between list items
+			&:not(:first-child):not(dd)
+				border-top: $border-width-light $border-style-light $border-color-light
+				+border-padding($border-width-light, (rhythm(.5), null, null))
+
+			// Compensate parent top border in first list item
+			&:first-child
+				+border-padding($border-width, (rhythm(.5), null, null))
+
+			// Compensate parent bottom border in last list item
+			&:last-child
+				+border-padding($border-width, (null, null, rhythm(.5)))
+
+	// Remove padding from first and last list item if not bordered to maintain consistent vertical rhythm
+	&:not(.bordered)
+		> *
+			&:first-child
+				padding-top: 0
+			&:last-child
+				padding-bottom: 0
+
+	// Different list types
+	@at-root
+		// Basic vertical lists
+		ul#{&}, ol#{&}
+			.list
+				margin-left: rhythm(1)
+			> li
+				&:before
+					display: inline-block
+					margin-right: rhythm(1)
+
+		// Unordered lists
+		ul#{&}
+			> li
+				&:before
+					content: "•"
+
+		// Ordered lists
+		ol#{&}
+			counter-reset: num
+			> li
+				&:before
+					counter-increment: num
+					content: counters(num, ".") "."
+					font-weight: $font-weight-bold
+
+		// Descriptive lists
+		dl#{&}
+			dt
+				font-weight: $font-weight-bold
+
+	// Larger viewports
+	+media(">=", $breakpoint-s)
+		&.bordered
+			> *
+				// Increase horizontal padding for bordered lists
+				+border-padding($border-width, (null, rhythm(2)))

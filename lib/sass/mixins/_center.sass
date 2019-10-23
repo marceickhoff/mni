@@ -1,0 +1,20 @@
+//----------------------------------------------------------------------------------------------------------------------
+// CENTERING
+//----------------------------------------------------------------------------------------------------------------------
+
+/// Centers an element using the position-transform trick.
+/// @param {String} $axis [both] - Specify centering on `vertical`, `horizontal` or `both` axes
+/// @param {String} $position [null] - Specify value for position property (optional)
+=center($axis: "both", $position: null)
+	@if $position != null
+		position: $position
+	@if $axis == "vertical" or $axis == "v"
+		top: 50%
+		transform: translateY(-50%)
+	@else if $axis == "horizontal" or $axis == "h"
+		left: 50%
+		transform: translateX(-50%)
+	@else
+		top: 50%
+		left: 50%
+		transform: translateX(-50%) translateY(-50%)

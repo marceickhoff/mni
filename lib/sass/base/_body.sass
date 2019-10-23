@@ -1,0 +1,26 @@
+//----------------------------------------------------------------------------------------------------------------------
+// BODY
+//----------------------------------------------------------------------------------------------------------------------
+
+body
+	position: relative // Allows full-height absolute-positioned children
+	min-width: $min-viewport
+	background-color: $color-canvas // Explicitly setting background-color so browsers don't get funky here
+	color: $font-color
+	// Same for font color
+	font-family: $font-stack
+	line-height: inherit // Override CSS reset
+	@if $font-weight-normal != normal // Prevent redundant declaration
+		font-weight: $font-weight-default-normal
+
+	// Rhythm debug grid
+	@if $rhythm-debug
+		&:after
+			content: ''
+			position: absolute
+			top: 0
+			left: 0
+			+size(100%)
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='#{strip-unit($rhythm-unit * 2)}' width='1'%3E%3Cline x1='0' y1='#{strip-unit($rhythm-unit) - .5}' x2='1' y2='#{strip-unit($rhythm-unit) - .5}' style='stroke:rgba(#{red($color-base)},#{green($color-base)},#{blue($color-base)},.05);stroke-width:1' /%3E%3Cline x1='0' y1='#{strip-unit($rhythm-unit * 2) - .5}' x2='1' y2='#{strip-unit($rhythm-unit * 2) - .5}' style='stroke:rgba(#{red($color-base)},#{green($color-base)},#{blue($color-base)},.1);stroke-width:1' /%3E%3C/svg%3E")
+			pointer-events: none
+			z-index: 9999

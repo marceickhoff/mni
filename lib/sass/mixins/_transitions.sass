@@ -1,0 +1,24 @@
+//----------------------------------------------------------------------------------------------------------------------
+// TRANSITION SHORTHANDS
+//----------------------------------------------------------------------------------------------------------------------
+
+/// Shorthand for creating a transition.
+/// @param {List|String} $property - One or multiple properties
+/// @param {Number} $timing-duration [$timing-duration-medium] - Transition duration
+=transition($property, $timing-duration: $timing-duration-medium)
+	@if type-of($property) == list
+		transition-duration: $timing-duration
+		transition-property: $property
+		transition-timing-function: $timing-function
+	@else
+		transition: $timing-duration $property $timing-function
+
+/// Shorthand for creating a quick transition.
+/// @param {List|String} $property - One or multiple properties
+=transition-quick($property)
+	+transition($property, $timing-duration-quick)
+
+/// Shorthand for creating a slow transition.
+/// @param {List|String} $property - One or multiple properties
+=transition-slow($property)
+	+transition($property, $timing-duration-slow)

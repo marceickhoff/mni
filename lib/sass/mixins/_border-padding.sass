@@ -1,0 +1,13 @@
+//----------------------------------------------------------------------------------------------------------------------
+// BORDER-AWARE PADDING
+//----------------------------------------------------------------------------------------------------------------------
+
+/// Applies "border-aware" padding by subtracting a given border width from given padding values to maintain a
+/// consistent vertical rhythm without the border throwing it off.
+/// @param {Length} $border-width - Border width
+/// @param {List} $values - Padding values
+=border-padding($border-width, $padding-values)
+	@each $padding in $padding-values
+		@if $padding != null
+			$padding-values: set_nth($padding-values, index($padding-values, $padding), $padding - $border-width)
+	+_directional-property(padding, null, $padding-values)

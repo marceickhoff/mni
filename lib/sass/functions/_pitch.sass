@@ -1,0 +1,19 @@
+//----------------------------------------------------------------------------------------------------------------------
+// PITCH FUNCTION
+//----------------------------------------------------------------------------------------------------------------------
+
+/// Changes the "pitch" of `$color` by mixing it with the base or canvas color
+/// @param {Color} $color - The original color
+/// @param {Number} $power - Pitch change between -100 and 100
+/// @return {Color}
+@function pitch($color, $power)
+	$power: clamp($power, -100, 100)
+	$light-color: $color-canvas
+	$dark-color: $color-base
+	@if (lightness($color-base) > lightness($color-canvas)) // Swap colors if base is brighter than canvas
+		$light-color: $color-base
+		$dark-color: $color-canvas
+	@if $power > 0
+		@return mix($light-color, $color, $power * 1%)
+	@else
+		@return mix($dark-color, $color, $power * 1%)

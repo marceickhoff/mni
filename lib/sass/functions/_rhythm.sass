@@ -1,0 +1,35 @@
+//----------------------------------------------------------------------------------------------------------------------
+// RHYTHM HELPER FUNCTION
+//----------------------------------------------------------------------------------------------------------------------
+
+/// Returns a (list of) length(s) in rem that represent(s) (a) specific number(s) of lines of the vertical rhythm grid.
+///   - If given a unit-less number the function will calculate the length (in rem) of that number of grid lines.
+///     Given number will be rounded with the exception of .5 as the only allowed fraction. This allows the use of
+///     half-lines.
+///   - If given a px or rem length the function will return the length (in rem) of the first number of grid lines that
+///     can contain the given length.
+/// @param {Length|List} $size - Either numbers (.5, 1, 2, …, n) of grid lines or px/rem values
+/// @param {Length} $rhythm-unit [$rhythm-unit] - Specify a non-default rhythm base unit (optional)
+/// @return {Length|List}
+@function rhythm($size, $rhythm-unit: $rhythm-unit)
+	@if type-of($size) == list
+		$return: ()
+		@each $s in $size
+			$return: append($return, rhythm($s, $rhythm-unit), space)
+		@return $return
+	@if unitless($size) // If given a number of desired lines...
+		@if $size != .5 // Only allowed fraction is .5
+			$size: round($size)
+		@return rem($size * $rhythm-unit) // Return height in rem
+	@else
+		@if unit($size) != "rem" // Convert to rem if given length is not in rem
+			$size: rem($size)
+		$i: .5 // Start with half line
+		@while true // Increase number of lines until $size fits
+			$line-height: rhythm($i) // Return rem value
+			@if ($line-height >= $size)
+				@return $line-height
+			@if $i == .5 // Special condition to increment from .5 to 1
+				$i: 1
+			@else
+				$i: $i + 1

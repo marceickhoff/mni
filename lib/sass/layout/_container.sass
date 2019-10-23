@@ -1,0 +1,18 @@
+//----------------------------------------------------------------------------------------------------------------------
+// CONTAINER
+//
+// Visually groups elements by applying vertical margin.
+//----------------------------------------------------------------------------------------------------------------------
+
+.container
+	&:not(:first-child)
+		margin-top: rhythm(3) // One more than space between paragraphs
+	&:not(:last-child)
+		margin-bottom: rhythm(3)
+
+	// Medium viewport and up
+	+media(">=", $breakpoint-m)
+		&:not(:first-child)
+			margin-top: rhythm(4) // One less than space before headline
+		&:not(:last-child)
+			margin-bottom: rhythm(4)
