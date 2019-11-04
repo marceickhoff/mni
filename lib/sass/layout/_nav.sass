@@ -124,9 +124,13 @@
 .nav-link
 	display: block
 	width: 100%
-	line-height: $nav-height
 	text-overflow: ellipsis
 	overflow: hidden
+	@extend %viewport-padding
+	+padding(rhythm(1) null)
+	+media(">=", $nav-breakpoint)
+		+padding(0 rhythm(1))
+		line-height: $nav-height
 
 
 //----------------------------------------------------------------------------------------------------------------------
