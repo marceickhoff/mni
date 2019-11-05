@@ -10,8 +10,9 @@
 	grid-gap: $grid-gap
 
 	// Compact grids have reduced grip-gap
-	&.compact
-		grid-gap: rhythm(1)
+	@if($grid-gap > $grid-gap-compact)
+		&.compact
+			grid-gap: $grid-gap-compact
 
 	// Slap a float layout on non-supporting browsers and simulate grid-gap with padding/margin
 	+supports-no("cssgrid")
@@ -22,10 +23,10 @@
 			float: left
 			padding: $grid-gap / 2
 		&.compact
-			margin: rhythm(1) / -2
+			margin: $grid-gap-compact / -2
 			> [class^="cell-"]
 				&.compact
-					padding: rhythm(1) / 2
+					padding: $grid-gap-compact / 2
 
 	// It is far more efficient to include the width property for all browsers and unset it again on browsers that do
 	// support grids instead of generating different sets of statements for supporting and non-supporting browsers.
@@ -37,13 +38,21 @@
 	@if $grid-gap-s > $grid-gap
 		+media(">=", $breakpoint-s)
 			grid-gap: $grid-gap-s
+			@if($grid-gap-s > $grid-gap-compact and $grid-gap <= $grid-gap-compact)
+				&.compact
+					grid-gap: $grid-gap-compact
 	@if $grid-gap-m > $grid-gap-s
 		+media(">=", $breakpoint-m)
 			grid-gap: $grid-gap-m
+			@if($grid-gap-m > $grid-gap-compact and $grid-gap-s <= $grid-gap-compact)
+				&.compact
+					grid-gap: $grid-gap-compact
 	@if $grid-gap-l > $grid-gap-m
 		+media(">=", $breakpoint-l)
 			grid-gap: $grid-gap-l
-
+			@if($grid-gap-l > $grid-gap-compact and $grid-gap-m <= $grid-gap-compact)
+				&.compact
+					grid-gap: $grid-gap-compact
 
 
 //----------------------------------------------------------------------------------------------------------------------
