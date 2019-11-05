@@ -2,9 +2,10 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const merge = require("webpack-merge");
 const common = require("./webpack.common.js");
-const loaders = require("./webpack.loaders.js");
+const modules = require("./webpack.modules.js");
 
-module.exports = merge.smart(common, loaders("production"), {
+module.exports = merge.smart(common, modules("production"), {
+	mode: "production",
 	output: {
 		filename: "js/[name].min.js"
 	},

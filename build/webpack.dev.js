@@ -1,9 +1,10 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const merge = require("webpack-merge");
 const common = require("./webpack.common.js");
-const loaders = require("./webpack.loaders.js");
+const modules = require("./webpack.modules.js");
 
-module.exports = merge.smart(common, loaders("development"), {
+module.exports = merge.smart(common, modules("development"), {
+	mode: "development",
 	output: {
 		filename: "js/[name].js"
 	},
