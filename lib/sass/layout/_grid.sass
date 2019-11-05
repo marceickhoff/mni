@@ -22,11 +22,12 @@
 		> [class^="cell-"]
 			float: left
 			padding: $grid-gap / 2
-		&.compact
-			margin: $grid-gap-compact / -2
-			> [class^="cell-"]
-				&.compact
-					padding: $grid-gap-compact / 2
+		@if($grid-gap > $grid-gap-compact)
+			&.compact
+				margin: $grid-gap-compact / -2
+				> [class^="cell-"]
+					&.compact
+						padding: $grid-gap-compact / 2
 
 	// It is far more efficient to include the width property for all browsers and unset it again on browsers that do
 	// support grids instead of generating different sets of statements for supporting and non-supporting browsers.
@@ -35,24 +36,23 @@
 			width: unset
 
 	// Viewport sizes
-	@if $grid-gap-s > $grid-gap
-		+media(">=", $breakpoint-s)
-			grid-gap: $grid-gap-s
-			@if($grid-gap-s > $grid-gap-compact and $grid-gap <= $grid-gap-compact)
-				&.compact
-					grid-gap: $grid-gap-compact
-	@if $grid-gap-m > $grid-gap-s
-		+media(">=", $breakpoint-m)
-			grid-gap: $grid-gap-m
-			@if($grid-gap-m > $grid-gap-compact and $grid-gap-s <= $grid-gap-compact)
-				&.compact
-					grid-gap: $grid-gap-compact
-	@if $grid-gap-l > $grid-gap-m
-		+media(">=", $breakpoint-l)
-			grid-gap: $grid-gap-l
-			@if($grid-gap-l > $grid-gap-compact and $grid-gap-m <= $grid-gap-compact)
-				&.compact
-					grid-gap: $grid-gap-compact
+	@each $size, $values in ("s":($grid-gap, $grid-gap-s, $breakpoint-s), "m":($grid-gap-s, $grid-gap-m, $breakpoint-m), "l":($grid-gap-m, $grid-gap-l, $breakpoint-l))
+		@if nth($values, 2) > nth($values, 1)
+			+media(">=", nth($values, 3))
+				grid-gap: $grid-gap-m
+				@if(nth($values, 2) > $grid-gap-compact and nth($values, 1) <= $grid-gap-compact)
+					&.compact
+						grid-gap: $grid-gap-compact
+				+supports-no("cssgrid")
+					margin: nth($values, 2) / -2
+					> [class^="cell-"]
+						padding: nth($values, 2) / 2
+					@if(nth($values, 2) > $grid-gap-compact and nth($values, 1) <= $grid-gap-compact)
+						&.compact
+							margin: $grid-gap-compact / -2
+							> [class^="cell-"]
+								&.compact
+									padding: $grid-gap-compact / 2
 
 
 //----------------------------------------------------------------------------------------------------------------------
