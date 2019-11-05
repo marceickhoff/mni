@@ -22,7 +22,8 @@
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9",
     "webpack-merge": "^4.2.2",
-    "webpack-modernizr-loader": "^5.0.0"
+    "webpack-modernizr-loader": "^5.0.0",
+    "zooming": "^2.1.1"
   },
   "author": {
     "name": "Marc Eickhoff",
