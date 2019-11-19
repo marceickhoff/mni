@@ -1,6 +1,11 @@
-module.exports = (env, argv) => {
-	let configs = [];
-	if (!argv.mode || argv.mode === "development") configs.push(require("./build/webpack.dev.js"));
-	if (!argv.mode || argv.mode === "production") configs.push(require("./build/webpack.prod.js"));
-	return configs;
-};
+let config;
+
+switch(process.env.NODE_ENV) {
+	case 'development':
+		config = require(`./build/webpack.dev.js`);
+		break;
+	case 'production':
+		config = require(`./build/webpack.prod.js`);
+		break;
+}
+module.exports = config;
