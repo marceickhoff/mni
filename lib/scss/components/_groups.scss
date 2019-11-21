@@ -1,0 +1,80 @@
+//----------------------------------------------------------------------------------------------------------------------
+// GROUPS
+//
+// Align small elements (like buttons or tags) in a fluid flex layout with a gap between them.
+//----------------------------------------------------------------------------------------------------------------------
+
+.group {
+	position: relative;
+	display: flex;
+	flex-flow: row wrap;
+	margin: rhythm(1) * -1 / 2;
+
+	// Group items
+	> * {
+		margin: rhythm(1) / 2;
+	}
+
+	// Compact modifier (reduces gap size)
+	&.compact {
+		margin: rhythm(0.5) * -1 / 2;
+
+		> * {
+			margin: rhythm(0.5) / 2;
+		}
+	}
+
+	// Alignment modifiers
+	&.left {
+		justify-content: flex-start;
+	}
+
+	&.right {
+		justify-content: flex-end;
+	}
+
+	&.center {
+		justify-content: center;
+	}
+
+	// Conditional alignment modifiers
+	@each $size, $breakpoint in ("s": $breakpoint-s, "m": $breakpoint-m, "l": $breakpoint-l) {
+		@include media(">=", $breakpoint) {
+			&.#{$size}-left {
+				justify-content: flex-start;
+			}
+
+			&.#{$size}-right {
+				justify-content: flex-end;
+			}
+
+			&.#{$size}-center {
+				justify-content: center;
+			}
+		}
+	}
+
+	// Larger gap for larger viewports
+	@include media(">=", $breakpoint-s) {
+		margin: rhythm(2) * -1 / 2;
+
+		> * {
+			margin: rhythm(2) / 2;
+		}
+	}
+
+
+	// Legacy support
+	// No support for alignment modifiers, use grids if they are important to your UI/UX
+	@include supports-no(flexboxboxsizing) {
+		display: block;
+		flex-flow: initial;
+		margin-top: 0;
+		margin-bottom: 0;
+		@include clearfix;
+
+		> * {
+			float: left;
+		}
+	}
+}

@@ -1,0 +1,30 @@
+//----------------------------------------------------------------------------------------------------------------------
+// SPINNER
+//----------------------------------------------------------------------------------------------------------------------
+
+.spinner {
+	position: relative;
+	@include size(rhythm(2));
+	@include center;
+	animation: spinner 0.5s infinite linear;
+	border-top: 0.25rem solid $color-primary;
+	border-right: 0.25rem solid rgba($color-base, 0.1);
+	border-bottom: 0.25rem solid rgba($color-base, 0.1);
+	border-left: 0.25rem solid rgba($color-base, 0.1);
+	border-radius: 50%;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// SPINNER ANIMATION
+//----------------------------------------------------------------------------------------------------------------------
+
+@keyframes spinner {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}
