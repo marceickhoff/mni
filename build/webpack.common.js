@@ -3,8 +3,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const isProd = process.env.NODE_ENV === "production";
 
 const defaultConfig = {
-	styleSyntax: "sass",
-	styleSrc: "lib/sass",
+	styleSyntax: "scss",
+	styleSrc: "lib/scss",
 	styleDist: "dist/css",
 	styleName: "main",
 	scriptSrc: "lib/js",
