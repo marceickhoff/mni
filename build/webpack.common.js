@@ -21,12 +21,12 @@ module.exports = function (config) {
 			path.resolve(`${config.styleSrc}/${config.styleName}.${config.styleSyntax}`)
 		],
 		output: {
-			path: path.resolve(__dirname, config.scriptDist),
+			path: path.resolve(__dirname, "../" + config.scriptDist),
 			filename: `[name]${(isProd ? ".min" : "")}.js`
 		},
 		plugins: [
 			new MiniCssExtractPlugin({
-				path: path.resolve(__dirname, config.styleDist),
+				path: path.resolve(__dirname, "../" + config.styleDist),
 				filename: `[name]${(isProd ? ".min" : "")}.css`
 			})
 		],
