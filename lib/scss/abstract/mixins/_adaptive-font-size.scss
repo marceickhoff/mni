@@ -2,7 +2,7 @@
 // ADAPTIVE FONT SIZE
 //----------------------------------------------------------------------------------------------------------------------
 
-/// Creates rules for changing the underlying rhythm ratios of font size/line height properties based on viewport width
+/// Creates rules for changing the underlying rhythm ratios of font size/line height properties based on viewport width.
 /// @param {Number} $scale - Modular scale increment
 @mixin adaptive-font-size($scale) {
 	font-size: modular-scale($scale);

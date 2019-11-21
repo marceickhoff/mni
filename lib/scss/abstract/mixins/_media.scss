@@ -2,8 +2,8 @@
 // MEDIA QUERIES
 //----------------------------------------------------------------------------------------------------------------------
 
-/// Shorthand for generating single-condition media queries based on screen width
-/// @param {String} $operator - Comparison operator (one of: >=, ge, >, gt, <, lt, <=, le)
+/// Shorthand for generating single-condition media queries based on screen width.
+/// @param {String} $operator - Comparison operator (one of: `>=`, `ge`, `>`, `gt`, `<`, `lt`, `<=`, `le`)
 /// @param {Length} $breakpoint - Screen width
 /// @param {String} $media ["all"] - Media
 /// @output `content`
