@@ -1,6 +1,14 @@
 //----------------------------------------------------------------------------------------------------------------------
-// PLACEHOLDERS QUICK IMPORT
+// VIEWPORT PADDING PLACEHOLDER
+//
+// Applies padding to viewport edges.
 //----------------------------------------------------------------------------------------------------------------------
 
-@import placholders/max-width
-@import placholders/viewport-padding
+%viewport-padding {
+	@include padding(null rhythm(1));
+
+	// Medium viewport and up
+	@include media(">=", $breakpoint-m) {
+		@include padding(null rhythm(4));
+	}
+}

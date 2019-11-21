@@ -5,21 +5,35 @@
 /// Creates a selector for targeting devices that support a specific CSS feature.
 /// @param {String} $feature - Feature name
 /// @output `content`
-=supports($feature)
-	@if &
-		.#{$modernizr-prefix-passed}#{$feature} &
-			@content
-	@else
-		.#{$modernizr-prefix-passed}#{$feature}
-			@content
+@mixin supports($feature) {
+	@if & {
+		.#{$modernizr-prefix-passed}#{$feature} & {
+			@content;
+		}
+	} @else {
+		.#{$modernizr-prefix-passed}#{$feature} {
+			@content;
+		}
+	}
+}
 
 /// Creates a selector for targeting devices that don't support a specific CSS feature.
 /// @param {String} $feature - Feature name
 /// @output `content`
-=supports-no($feature)
-	@if &
-		.#{$modernizr-prefix-failed}#{$feature} &
-			@content
-	@else
-		.#{$modernizr-prefix-failed}#{$feature}
-			@content
+=
+supports-no
+
+(
+$feature)
+{
+	@if & {
+		.#{$modernizr-prefix-failed}#{$feature} & {
+			@content;
+		}
+	} @else {
+		.#{$modernizr-prefix-failed}#{$feature} {
+			@content;
+		}
+	}
+
+}

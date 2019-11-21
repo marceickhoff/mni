@@ -3,28 +3,28 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Base color
-$color-base: rgb(30, 30, 35) !default
+$color-base: rgb(30, 30, 35) !default;
 
 // Canvas color
-$color-canvas: rgb(255, 255, 255) !default
+$color-canvas: rgb(255, 255, 255) !default;
 
 // Main colors
-$color-primary: rgb(60, 170, 240) !default
-$color-primary-contrast: $color-canvas !default
-$color-secondary: $color-base !default
-$color-secondary-contrast: $color-canvas !default
+$color-primary: rgb(60, 170, 240) !default;
+$color-primary-contrast: $color-canvas !default;
+$color-secondary: $color-base !default;
+$color-secondary-contrast: $color-canvas !default;
 
 // State colors
-$color-error: rgb(240, 0, 60) !default
-$color-error-contrast: $color-canvas !default
-$color-warning: rgb(240, 170, 0) !default
-$color-warning-contrast: $color-canvas !default
-$color-success: rgb(0, 170, 60) !default
-$color-success-contrast: $color-canvas !default
-$color-notice: $color-primary !default
-$color-notice-contrast: $color-canvas !default
-$color-muted: pitch($color-base, 90) !default
-$color-muted-contrast: pitch($color-base, 75) !default
+$color-error: rgb(240, 0, 60) !default;
+$color-error-contrast: $color-canvas !default;
+$color-warning: rgb(240, 170, 0) !default;
+$color-warning-contrast: $color-canvas !default;
+$color-success: rgb(0, 170, 60) !default;
+$color-success-contrast: $color-canvas !default;
+$color-notice: $color-primary !default;
+$color-notice-contrast: $color-canvas !default;
+$color-muted: pitch($color-base, 90) !default;
+$color-muted-contrast: pitch($color-base, 75) !default;
 
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -32,16 +32,16 @@ $color-muted-contrast: pitch($color-base, 75) !default
 //----------------------------------------------------------------------------------------------------------------------
 
 // Rhythm base unit
-$rhythm-unit: 16px !default
+$rhythm-unit: 16px !default;
 
 // Rhythm ratios (used for modular scale and line height multipliers)
-$rhythm-ratio: $major-second !default
-$rhythm-ratio-s: $major-second !default
-$rhythm-ratio-m: $major-third !default
-$rhythm-ratio-l: $perfect-fourth !default
+$rhythm-ratio: $major-second !default;
+$rhythm-ratio-s: $major-second !default;
+$rhythm-ratio-m: $major-third !default;
+$rhythm-ratio-l: $perfect-fourth !default;
 
 // Show debug grid
-$rhythm-debug: false !default
+$rhythm-debug: false !default;
 
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -50,15 +50,20 @@ $rhythm-debug: false !default
 // You don't need to change anything here.
 //----------------------------------------------------------------------------------------------------------------------
 
-$bourbon: ("contrast-switch-dark-color": $color-base, "contrast-switch-light-color": $color-canvas, "modular-scale-base": 1rem, "modular-scale-ratio": $rhythm-ratio) !default
+$bourbon: (
+	"contrast-switch-dark-color": $color-base,
+	"contrast-switch-light-color": $color-canvas,
+	"modular-scale-base": 1rem,
+	"modular-scale-ratio": $rhythm-ratio
+) !default;
 
 
 //----------------------------------------------------------------------------------------------------------------------
 // MODERNIZR PREFIXES
 //----------------------------------------------------------------------------------------------------------------------
 
-$modernizr-prefix-passed: 'supports-' !default
-$modernizr-prefix-failed: 'supports-no-' !default
+$modernizr-prefix-passed: 'supports-' !default;
+$modernizr-prefix-failed: 'supports-no-' !default;
 
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -66,22 +71,22 @@ $modernizr-prefix-failed: 'supports-no-' !default
 //----------------------------------------------------------------------------------------------------------------------
 
 // Size
-$font-size-root: $rhythm-unit !default // px
-$font-size: modular-scale(0) !default // same as above, but in rem
-$font-size-small: modular-scale(-1) !default
+$font-size-root: $rhythm-unit !default; // px
+$font-size: modular-scale(0) !default; // same as above, but in rem
+$font-size-small: modular-scale(-1) !default;
 
 // Family
-$font-stack: $font-stack-helvetica !default
-$font-stack-headline: $font-stack !default
+$font-stack: $font-stack-helvetica !default;
+$font-stack-headline: $font-stack !default;
 
 // Weights
-$font-weight-normal: normal !default
-$font-weight-bold: bold !default
-$font-weight-headline: bold !default
+$font-weight-normal: normal !default;
+$font-weight-bold: bold !default;
+$font-weight-headline: bold !default;
 
 // Colors
-$font-color: pitch($color-base, 25) !default
-$font-color-headline: $color-base !default
+$font-color: pitch($color-base, 25) !default;
+$font-color-headline: $color-base !default;
 
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -89,16 +94,16 @@ $font-color-headline: $color-base !default
 //----------------------------------------------------------------------------------------------------------------------
 
 // Number of columns
-$grid-columns: 12 !default
+$grid-columns: 12 !default;
 
 // Space between cells
-$grid-gap: rhythm(.5) !default
-$grid-gap-s: rhythm(1) !default
-$grid-gap-m: rhythm(2) !default
-$grid-gap-l: rhythm(3) !default
+$grid-gap: rhythm(.5) !default;
+$grid-gap-s: rhythm(1) !default;
+$grid-gap-m: rhythm(2) !default;
+$grid-gap-l: rhythm(3) !default;
 
 // Space between cells of compact grid
-$grid-gap-compact: $grid-gap-s !default
+$grid-gap-compact: $grid-gap-s !default;
 
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -106,9 +111,9 @@ $grid-gap-compact: $grid-gap-s !default
 //----------------------------------------------------------------------------------------------------------------------
 
 // Colors
-$link-color: $color-primary !default
-$link-color-hover: pitch($link-color, 25) !default
-$link-color-visited: $link-color !default
+$link-color: $color-primary !default;
+$link-color-hover: pitch($link-color, 25) !default;
+$link-color-visited: $link-color !default;
 
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -116,16 +121,16 @@ $link-color-visited: $link-color !default
 //----------------------------------------------------------------------------------------------------------------------
 
 // Widths
-$border-width: rem(1px) !default
-$border-width-light: rem(1px) !default
+$border-width: rem(1px) !default;
+$border-width-light: rem(1px) !default;
 
 // Style
-$border-style: solid !default
-$border-style-light: solid !default
+$border-style: solid !default;
+$border-style-light: solid !default;
 
 // Colors
-$border-color: pitch($color-base, 75) !default
-$border-color-light: pitch($color-base, 90) !default
+$border-color: pitch($color-base, 75) !default;
+$border-color-light: pitch($color-base, 90) !default;
 
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -133,22 +138,22 @@ $border-color-light: pitch($color-base, 90) !default
 //----------------------------------------------------------------------------------------------------------------------
 
 // Font
-$button-font-size: $font-size !default
-$button-font-stack: $font-stack !default
-$button-font-weight: $font-weight-normal !default
+$button-font-size: $font-size !default;
+$button-font-stack: $font-stack !default;
+$button-font-weight: $font-weight-normal !default;
 
 // Border
-$button-border-width: $border-width
-$button-border-style: $border-style
+$button-border-width: $border-width !default;
+$button-border-style: $border-style !default;
 
 
 //----------------------------------------------------------------------------------------------------------------------
 // Z-INDEX
 //----------------------------------------------------------------------------------------------------------------------
 
-$z-index-nav: 10
-$z-index-overlay: 99
-$z-index-modal: 100
+$z-index-nav: 10 !default;
+$z-index-overlay: 99 !default;
+$z-index-modal: 100 !default;
 
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -156,15 +161,15 @@ $z-index-modal: 100
 //----------------------------------------------------------------------------------------------------------------------
 
 // Viewport widths
-$breakpoint-s: 480px !default
-$breakpoint-m: 720px !default
-$breakpoint-l: 1180px !default
+$breakpoint-s: 480px !default;
+$breakpoint-m: 720px !default;
+$breakpoint-l: 1180px !default;
 
 // Viewport width at which the page does not respond anymore and horizontal scroll bars appear
-$min-viewport: 240px !default
+$min-viewport: 240px !default;
 
 // Maximum content width
-$max-content-width: $breakpoint-l
+$max-content-width: $breakpoint-l !default;
 
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -172,12 +177,12 @@ $max-content-width: $breakpoint-l
 //----------------------------------------------------------------------------------------------------------------------
 
 // Interpolation function
-$timing-function: cubic-bezier(.85, 0, .5, 1) !default
+$timing-function: cubic-bezier(.85, 0, .5, 1) !default;
 
 // Timing duration
-$timing-duration-slow: .75s
-$timing-duration-medium: .33s
-$timing-duration-quick: .1s
+$timing-duration-slow: .75s !default;
+$timing-duration-medium: .33s !default;
+$timing-duration-quick: .1s !default;
 
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -185,16 +190,16 @@ $timing-duration-quick: .1s
 //----------------------------------------------------------------------------------------------------------------------
 
 // Drawer settings
-$nav-drawer-behind: true // If the drawer should be before or behind the nav bar background
-$nav-drawer-overlay: false // Dim the content behind the drawer if the drawer is opened
+$nav-drawer-behind: true !default; // If the drawer should be before or behind the nav bar background
+$nav-drawer-overlay: false !default; // Dim the content behind the drawer if the drawer is opened
 
 // Dimensions
-$nav-height: rhythm(4) !default // Total height of the nav bar
+$nav-height: rhythm(4) !default; // Total height of the nav bar
 
 // Hamburger icon
-$nav-hamburger-width: rhythm(2) !default // Width of the icon
-$nav-hamburger-height: rhythm(1) !default // Total height of the icon
-$nav-hamburger-bar-height: rem(3px) !default // Height of the individual bars
+$nav-hamburger-width: rhythm(2) !default; // Width of the icon
+$nav-hamburger-height: rhythm(1) !default; // Total height of the icon
+$nav-hamburger-bar-height: rem(3px) !default; // Height of the individual bars
 
 // Breakpoints
-$nav-breakpoint: $breakpoint-m !default // At which viewport width the navigation should collapse into an off-canvas menu
+$nav-breakpoint: $breakpoint-m !default; // At which viewport width the navigation should collapse into an off-canvas menu

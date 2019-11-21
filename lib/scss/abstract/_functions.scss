@@ -1,11 +1,7 @@
 //----------------------------------------------------------------------------------------------------------------------
-// MIXINS QUICK IMPORT
+// FUNCTIONS QUICK IMPORT
 //----------------------------------------------------------------------------------------------------------------------
-
-@import mixins/adaptive-font-size
-@import mixins/border-padding
-@import mixins/center
-@import mixins/headline
-@import mixins/media
-@import mixins/modernirz
-@import mixins/transitions
+@import "functions/clamp";
+@import "functions/pitch";
+@import "functions/rem";
+@import "functions/rhythm";

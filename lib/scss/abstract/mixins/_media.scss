@@ -7,16 +7,22 @@
 /// @param {Length} $breakpoint - Screen width
 /// @param {String} $media ["all"] - Media
 /// @output `content`
-=media($operator, $breakpoint, $media: all)
-	@if $operator == ">=" or $operator == "ge"
-		@media #{$media} and (min-width: $breakpoint)
-			@content
-	@else if $operator == ">" or $operator == "gt"
-		@media #{$media} and (min-width: $breakpoint + 1)
-			@content
-	@else if $operator == "<" or $operator == "lt"
-		@media #{$media} and (max-width: $breakpoint - 1)
-			@content
-	@else if $operator == "<=" or $operator == "le"
-		@media #{$media} and (max-width: $breakpoint)
-			@content
+@mixin media($operator, $breakpoint, $media: all) {
+	@if $operator == ">=" or $operator == "ge" {
+		@media #{$media} and (min-width: $breakpoint) {
+			@content;
+		}
+	} @else if $operator == ">" or $operator == "gt" {
+		@media #{$media} and (min-width: $breakpoint + 1) {
+			@content;
+		}
+	} @else if $operator == "<" or $operator == "lt" {
+		@media #{$media} and (max-width: $breakpoint - 1) {
+			@content;
+		}
+	} @else if $operator == "<=" or $operator == "le" {
+		@media #{$media} and (max-width: $breakpoint) {
+			@content;
+		}
+	}
+}

@@ -1,9 +1,5 @@
 //----------------------------------------------------------------------------------------------------------------------
-// MAXIMUM CONTENT WIDTH PLACEHOLDER
-//
-// Restricts an element to the defined $max-content-width width and centers it.
+// PLACEHOLDERS QUICK IMPORT
 //----------------------------------------------------------------------------------------------------------------------
-
-%max-width
-	max-width: $max-content-width
-	margin: 0 auto
+@import "placholders/max-width";
+@import "placholders/viewport-padding";

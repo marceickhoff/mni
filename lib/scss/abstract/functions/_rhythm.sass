@@ -17,19 +17,24 @@
 		@each $s in $size
 			$return: append($return, rhythm($s, $rhythm-unit), space)
 		@return $return
-	@if unitless($size) // If given a number of desired lines...
-		@if $size != .5 // Only allowed fraction is .5
-			$size: round($size)
-		@return rem($size * $rhythm-unit) // Return height in rem
+	@if unitless($size)
+		// If given a number of desired lines...
+			   @if $size != .5 // Only allowed fraction is .5
+				   $size: round($size)
+			   @return rem($size * $rhythm-unit)
+		// Return height in rem
 	@else
-		@if unit($size) != "rem" // Convert to rem if given length is not in rem
-			$size: rem($size)
-		$i: .5 // Start with half line
-		@while true // Increase number of lines until $size fits
-			$line-height: rhythm($i) // Return rem value
-			@if ($line-height >= $size)
-				@return $line-height
-			@if $i == .5 // Special condition to increment from .5 to 1
-				$i: 1
-			@else
-				$i: $i + 1
+		@if unit($size) != "rem"
+		// Convert to rem if given length is not in rem
+				   $size: rem($size)
+		$i: .5
+		// Start with half line
+		@while true
+	// Increase number of lines until $size fits
+			   $line-height: rhythm($i) // Return rem value
+			   @if ($line-height >= $size)
+				   @return $line-height
+			   @if $i == .5 // Special condition to increment from .5 to 1
+				   $i: 1
+			   @else
+				   $i: $i + 1

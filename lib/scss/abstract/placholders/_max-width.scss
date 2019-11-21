@@ -1,8 +1,10 @@
 //----------------------------------------------------------------------------------------------------------------------
-// FUNCTIONS QUICK IMPORT
+// MAXIMUM CONTENT WIDTH PLACEHOLDER
+//
+// Restricts an element to the defined $max-content-width width and centers it.
 //----------------------------------------------------------------------------------------------------------------------
 
-@import functions/clamp
-@import functions/pitch
-@import functions/rem
-@import functions/rhythm
+%max-width {
+	max-width: $max-content-width;
+	margin: 0 auto;
+}

@@ -4,10 +4,14 @@
 // Applies all styles for a headline.
 //----------------------------------------------------------------------------------------------------------------------
 
-=headline($color: $font-color-headline)
-	@if $font-stack-headline != $font-stack
-		font-family: $font-stack-headline
-	@if $font-weight-headline != normal
-		font-weight: $font-weight-headline
-	@if $color != $font-color
-		color: $font-color-headline
+@mixin headline($color: $font-color-headline) {
+	@if $font-stack-headline != $font-stack {
+		font-family: $font-stack-headline;
+	}
+	@if $font-weight-headline != normal {
+		font-weight: $font-weight-headline;
+	}
+	@if $color != $font-color {
+		color: $font-color-headline,
+	}
+}

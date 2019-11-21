@@ -6,8 +6,11 @@
 /// consistent vertical rhythm without the border throwing it off.
 /// @param {Length} $border-width - Border width
 /// @param {List} $values - Padding values
-=border-padding($border-width, $padding-values)
-	@each $padding in $padding-values
-		@if $padding != null
+@mixin border-padding($border-width, $padding-values) {
+	@each $padding in $padding-values {
+		@if $padding != null {
 			$padding-values: set_nth($padding-values, index($padding-values, $padding), $padding - $border-width)
-	+_directional-property(padding, null, $padding-values)
+		}
+	}
+	@include _directional-property(padding, null, $padding-values);
+}

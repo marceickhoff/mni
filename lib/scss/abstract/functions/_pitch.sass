@@ -10,9 +10,10 @@
 	$power: clamp($power, -100, 100)
 	$light-color: $color-canvas
 	$dark-color: $color-base
-	@if (lightness($color-base) > lightness($color-canvas)) // Swap colors if base is brighter than canvas
-		$light-color: $color-base
-		$dark-color: $color-canvas
+	@if (lightness($color-base) > lightness($color-canvas))
+	// Swap colors if base is brighter than canvas
+		   $light-color: $color-base
+		   $dark-color: $color-canvas
 	@if $power > 0
 		@return mix($light-color, $color, $power * 1%)
 	@else

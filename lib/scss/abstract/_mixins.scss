@@ -1,12 +1,10 @@
 //----------------------------------------------------------------------------------------------------------------------
-// VIEWPORT PADDING PLACEHOLDER
-//
-// Applies padding to viewport edges.
+// MIXINS QUICK IMPORT
 //----------------------------------------------------------------------------------------------------------------------
-
-%viewport-padding
-	+padding(null rhythm(1))
-
-	// Medium viewport and up
-	+media(">=", $breakpoint-m)
-		+padding(null rhythm(4))
+@import "mixins/adaptive-font-size";
+@import "mixins/border-padding";
+@import "mixins/center";
+@import "mixins/headline";
+@import "mixins/media";
+@import "mixins/modernirz";
+@import "mixins/transitions";
