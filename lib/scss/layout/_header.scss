@@ -5,9 +5,11 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Main header container
-.header
-	@extend %viewport-padding
+.header {
+	@extend %viewport-padding;
 
 	// Apply padding to wrapper
-	.wrapper
-		+padding(rhythm(2) null)
+	.wrapper {
+		@include padding(rhythm(2) null);
+	}
+}

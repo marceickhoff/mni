@@ -5,17 +5,19 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Main footer container
-.footer
-	@extend %viewport-padding
+.footer {
+	@extend %viewport-padding;
 
 	// Apply padding to wrapper
-	.wrapper
-		padding: rhythm(5) 0
+	.wrapper {
+		padding: rhythm(5) 0;
 
 		// Large viewport and up
-		+media(">=", $breakpoint-l)
-			padding: rhythm(6) 0
-
+		@include media(">=", $breakpoint-l) {
+			padding: rhythm(6) 0;
+		}
+	}
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 // FOOTER NAVIGATION
@@ -24,22 +26,28 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Nav container
-.footer-nav
+.footer-nav {
 	// Empty
+}
 
 // Nav headline
-.footer-nav-headline
-	+headline
-	margin-bottom: rhythm(1)
+.footer-nav-headline {
+	@include headline;
+
+	margin-bottom: rhythm(1);
+}
 
 // Nav list
-.footer-nav-list
+.footer-nav-list {
 	// Empty
+}
 
 // Item inside nav list
-.footer-nav-item
+.footer-nav-item {
 	// Empty
+}
 
 // Link inside nav item
-.footer-nav-link
-	padding: rhythm(.5) 0
+.footer-nav-link {
+	padding: rhythm(0.5) 0;
+}

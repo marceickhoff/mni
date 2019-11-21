@@ -1,0 +1,134 @@
+//----------------------------------------------------------------------------------------------------------------------
+// GRID CONTAINER
+//
+// Wrapper for grid cells.
+//----------------------------------------------------------------------------------------------------------------------
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat($grid-columns, 1fr);
+	grid-gap: $grid-gap;
+
+	// Compact grids have reduced grip-gap
+	@if ($grid-gap > $grid-gap-compact) {
+		&.compact {
+			grid-gap: $grid-gap-compact;
+		}
+	}
+
+	// Slap a float layout on non-supporting browsers and simulate grid-gap with padding/margin
+	@include supports-no("cssgrid") {
+		display: block;
+		margin: $grid-gap / -2; // Compensate extra padding from edge columns
+
+		@include clearfix;
+
+		> [class^="cell-"] {
+			float: left;
+			padding: $grid-gap / 2;
+		}
+
+		@if ($grid-gap > $grid-gap-compact) {
+			&.compact {
+				margin: $grid-gap-compact / -2;
+
+				> [class^="cell-"] {
+					&.compact {
+						padding: $grid-gap-compact / 2;
+					}
+				}
+			}
+		}
+	}
+
+
+	// It is far more efficient to include the width property for all browsers and unset it again on browsers that do
+	// support grids instead of generating different sets of statements for supporting and non-supporting browsers.
+	@include supports("cssgrid") {
+		> [class^="cell-"] {
+			width: unset;
+		}
+	}
+
+
+	// Viewport sizes
+	@each $size, $values in (
+		"s": (
+			$grid-gap,
+			$grid-gap-s,
+			$breakpoint-s
+		),
+		"m": (
+			$grid-gap-s,
+			$grid-gap-m,
+			$breakpoint-m
+		),
+		"l": (
+			$grid-gap-m,
+			$grid-gap-l,
+			$breakpoint-l
+		)
+	) {
+		@if nth($values, 2) > nth($values, 1) {
+			@include media(">=", nth($values, 3)) {
+				grid-gap: $grid-gap-m;
+
+				@if (nth($values, 2) > $grid-gap-compact and nth($values, 1) <= $grid-gap-compact) {
+					&.compact {
+						grid-gap: $grid-gap-compact;
+					}
+				}
+
+				@include supports-no("cssgrid") {
+					margin: nth($values, 2) / -2;
+
+					> [class^="cell-"] {
+						padding: nth($values, 2) / 2;
+					}
+
+					@if (nth($values, 2) > $grid-gap-compact and nth($values, 1) <= $grid-gap-compact) {
+						&.compact {
+							margin: $grid-gap-compact / -2;
+
+							> [class^="cell-"] {
+								&.compact {
+									padding: $grid-gap-compact / 2;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// GRID CELLS
+//
+// May contain sub grids.
+//----------------------------------------------------------------------------------------------------------------------
+
+@for $i from 1 through $grid-columns {
+	.cell-#{$i} {
+		grid-column-end: span $i;
+		width: $i / $grid-columns * 100%; // Width property for non-supporting browsers, see above
+	}
+}
+
+// Other viewports
+@each $size, $breakpoint in (
+	"s": $breakpoint-s,
+	"m": $breakpoint-m,
+	"l": $breakpoint-l,
+	"nav": $nav-breakpoint
+) {
+	@include media(">=", $breakpoint) {
+		@for $i from 1 through $grid-columns {
+			.cell-#{$size}-#{$i} {
+				grid-column-end: span $i;
+				width: $i / $grid-columns * 100%;
+			}
+		}
+	}
+}

@@ -4,5 +4,6 @@
 // Width-constraining wrapper.
 //----------------------------------------------------------------------------------------------------------------------
 
-.wrapper
-	@extend %max-width
+.wrapper {
+	@extend %max-width;
+}

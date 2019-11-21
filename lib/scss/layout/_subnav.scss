@@ -1,0 +1,41 @@
+//----------------------------------------------------------------------------------------------------------------------
+// SUBNAV
+//----------------------------------------------------------------------------------------------------------------------
+
+.subnav {
+	overflow: hidden;
+	height: 0;
+	@include transition(height);
+
+	&.active {
+		height: auto;
+	}
+
+	// Desktop nav
+	@include media(">", $nav-breakpoint) {
+		position: absolute;
+		background: $color-canvas;
+	}
+}
+
+// Subnav list
+.subnav-list {
+	display: block;
+}
+
+// Subnav list item
+.subnav-item {
+	display: block;
+}
+
+// Subnav link
+.subnav-link {
+	@extend %viewport-padding;
+	display: block;
+	@include padding(rhythm(1) null);
+
+	// Desktop nav
+	@include media(">", $nav-breakpoint) {
+		padding: rhythm(0.5 1);
+	}
+}
