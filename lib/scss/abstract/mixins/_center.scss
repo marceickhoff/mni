@@ -3,16 +3,36 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 /// Centers an element using the position-transform trick.
-/// @param {String} $axis [both] - Specify centering on `vertical`, `horizontal` or `both` axes
+/// @param {String} $axis [both] - Specify centering on `vertical`/`v`, `horizontal`/`h` or `both` axes
 /// @param {String} $position [null] - Specify value for position property (optional)
-@mixin center($axis: "both", $position: null) {
+/// @example scss Usage
+///   .example-1 {
+///     position: relative;
+///     @include center; //No need to specify position property
+///   }
+///   .example-2 {
+///     @include center(vertical, absolute); //Position property specified
+///   }
+/// @example css Resulting CSS
+///   .example-1 {
+///     position: relative;
+///     top: 50%;
+///     left: 50%;
+///     transform: translateX(-50%) translateY(-50%);
+///   }
+///   .example-2 {
+///     position: absolute;
+///     top: 50%;
+///     transform: translateY(-50%);
+///   }
+@mixin center($axis: both, $position: null) {
 	@if $position != null {
 		position: $position;
 	}
-	@if $axis == "vertical" or $axis == "v" {
+	@if $axis == vertical or $axis == v {
 		top: 50%;
 		transform: translateY(-50%);
-	} @else if $axis == "horizontal" or $axis == "h" {
+	} @else if $axis == horizontal or $axis == h {
 		left: 50%;
 		transform: translateX(-50%);
 	} @else {

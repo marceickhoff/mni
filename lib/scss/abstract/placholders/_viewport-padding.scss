@@ -1,9 +1,8 @@
 //----------------------------------------------------------------------------------------------------------------------
 // VIEWPORT PADDING PLACEHOLDER
-//
-// Applies padding to viewport edges.
 //----------------------------------------------------------------------------------------------------------------------
 
+/// Applies padding to viewport edges. Use on elements that would otherwise directly touch viewport edges.
 %viewport-padding {
 	@include padding(null rhythm(1));
 

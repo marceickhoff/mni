@@ -2,10 +2,17 @@
 // PX TO REM CONVERTER
 //----------------------------------------------------------------------------------------------------------------------
 
-/// Converts a pixel value to a rem (root element) value.
+/// Converts a pixel value to a rem (root element) value using `$font-size-root`.
 /// @param {Length} $px - Pixel value
 /// @param {Length} $font-size-root [$font-size-root] - Root font size for calculation (optional)
 /// @return {Length}
+/// @example scss Assuming `$font-size-root: 16px`
+///   rem(16px)
+///   // 1rem
+///   rem(24px)
+///   // 1.5rem
+///   rem(32px, 8px) // Different base value specified
+///   // 4rem
 @function rem($px, $font-size-root: $font-size-root) {
 	@return strip-unit($px / $font-size-root) * 1rem;
 }

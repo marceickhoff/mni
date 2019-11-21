@@ -2,10 +2,33 @@
 // ADAPTIVE FONT SIZE
 //----------------------------------------------------------------------------------------------------------------------
 
-/// Creates rules for changing the underlying rhythm ratios of font size/line height properties based on viewport width.
-/// @param {Number} $scale - Modular scale increment
+/// Creates CSS rules for changing the underlying rhythm ratios of font size/line height based on viewport width.
+/// The resulting values will always fit into the vertical rhythm.
+/// @param {Number} $scale - [Modular scale increment](https://www.bourbon.io/docs/latest/#modular-scale)
+/// @example scss Usage
+///   .example {
+///     @include adaptive-font-size(1);
+///   }
+/// @example css Resulting CSS
+///   .example {
+///     font-size: 1.125rem;
+///	    line-height: 2rem;
+///   }
+///   @media all and (min-width: 720px) {
+///     .example {
+///       font-size: 1.25rem;
+///       line-height: 2rem;
+///     }
+///   }
+///   @media all and (min-width: 1180px) {
+///     .example {
+///       font-size: 1.333rem;
+///       line-height: 2rem;
+///     }
+///   }
 @mixin adaptive-font-size($scale) {
 	font-size: modular-scale($scale);
+
 	line-height: rhythm(modular-scale($scale) * $rhythm-ratio);
 
 	// Change rhythm ratio for small viewports

@@ -1,9 +1,19 @@
 //----------------------------------------------------------------------------------------------------------------------
 // HEADLINE
-//
-// Applies all styles for a headline.
 //----------------------------------------------------------------------------------------------------------------------
 
+/// Applies styles for a default headline or headline-styled text. This is meant to be modified to meet the requirements
+/// of your custom design.
+/// @param {Color} $color [$font-color-headline] - Font color (optional)
+/// @example scss Usage
+///   .example {
+///     @include headline;
+///   }
+/// @example css Resulting CSS
+///   .example {
+///     font-weight: bold;
+///     color: #1e1e23;
+///   }
 @mixin headline($color: $font-color-headline) {
 	@if $font-stack-headline != $font-stack {
 		font-family: $font-stack-headline;

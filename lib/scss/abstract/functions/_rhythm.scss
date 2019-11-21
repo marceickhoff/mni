@@ -8,9 +8,30 @@
 ///     half-lines.
 ///   - If given a px or rem length the function will return the length (in rem) of the first number of grid lines that
 ///     can contain the given length.
-/// @param {Length|List} $size - Either numbers (.5, 1, 2, …, n) of grid lines or px/rem values
+/// @param {Length|List} $size - Either numbers of grid lines (`.5`, `1`, `2`, `…`, `n`) or px/rem values, takes lists as well
 /// @param {Length} $rhythm-unit [$rhythm-unit] - Specify a non-default rhythm base unit (optional)
-/// @return {Length|List}
+/// @return {Length|List} `rem` value(s)
+/// @example scss Assuming `$rhythm-unit: 16px`
+///   rhythm(1)
+///   // 1rem
+///   rhythm(5)
+///   // 5rem
+///   rhythm(32px)
+///   // 2rem
+///   rhythm(33px)
+///   // 3rem
+///   rhythm(38px)
+///   // 3rem
+///   rhythm(48px)
+///   // 3rem
+///   rhythm(49px)
+///   // 4rem
+///   rhythm(1.5rem) // Works with rem
+///   // 2rem
+///   rhythm(2 1rem 16px) // Works with lists and mixed units, too
+///   // 2rem 1rem 1rem
+///   rhythm(32px, 12px) // Non-default rhythm base
+///   // 3rem
 @function rhythm($size, $rhythm-unit: $rhythm-unit) {
 	@if type-of($size) == list {
 		$return: ();
@@ -19,9 +40,8 @@
 		}
 		@return $return;
 	}
-	@if unitless($size) {
-		// If given a number of desired lines...
-		@if $size != .5 { // Only allowed fraction is .5
+	@if unitless($size) { // If given a number of desired lines...
+		@if $size != 0.5 { // Only allowed fraction is .5
 			$size: round($size);
 		}
 		@return rem($size * $rhythm-unit); // Return height in rem
@@ -29,15 +49,13 @@
 		@if unit($size) != "rem" {
 			$size: rem($size); // Convert to rem if given length is not in rem
 		}
-		$i: .5; // Start with half line
-
-		// Increase number of lines until $size fits
-		@while true {
-			$line-height: rhythm($i);
-			@if ($line-height >= $size) {
-				@return $line-height; // Return rem value
+		$i: 0.5; // Start with half line
+		@while true { // Increase number of lines until $size fits
+			$line-height: rhythm($i); // Return rem value
+			@if $line-height >= $size {
+				@return $line-height;
 			}
-			@if $i == .5 { // Special condition to increment from .5 to 1
+			@if $i == 0.5 { // Special condition to increment from .5 to 1
 				$i: 1;
 			} @else {
 				$i: $i + 1;

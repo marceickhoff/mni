@@ -5,6 +5,22 @@
 /// Shorthand for creating a transition.
 /// @param {List|String} $property - One or multiple properties
 /// @param {Number} $timing-duration [$timing-duration-medium] - Transition duration
+/// @example scss Usage
+///   .example-1 {
+///     @include transition(opacity); // Single property transition with default duration
+///   }
+///   .example-2 {
+///     @include transition(opacity color transform, .75s); // Multi property transition with custom duration
+///   }
+/// @example css Resulting CSS
+///   .example-1 {
+///     transition: .33s opacity cubic-bezier(.85, 0, .5, 1);
+///   }
+///   .example-2 {
+///     transition-duration: .75s;
+///     transition-property: opacity color transform;
+///     transition-timing-function: cubic-bezier(.85, 0, .5, 1);
+///   }
 @mixin transition($property, $timing-duration: $timing-duration-medium) {
 	@if type-of($property) == list {
 		transition-duration: $timing-duration;
@@ -17,12 +33,14 @@
 
 /// Shorthand for creating a quick transition.
 /// @param {List|String} $property - One or multiple properties
+/// @see transition
 @mixin transition-quick($property) {
 	@include transition($property, $timing-duration-quick);
 }
 
 /// Shorthand for creating a slow transition.
 /// @param {List|String} $property - One or multiple properties
+/// @see transition
 @mixin transition-slow($property) {
 	@include transition($property, $timing-duration-slow);
 }

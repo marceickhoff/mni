@@ -6,6 +6,26 @@
 /// consistent vertical rhythm without the border throwing it off.
 /// @param {Length} $border-width - Border width
 /// @param {List} $values - Padding values
+/// @example scss Usage
+///   .example-1, .example-2 {
+///     border: 1px solid black;
+///   }
+///   .example-1 {
+///     @include border-padding(rem(1px), 2rem); // 2rem padding minus 1px border so border doesn't disturb vertical rhythm
+///   }
+///   .example-2 {
+///     @include border-padding(rem(1px), 1rem 2rem 3rem); // Works with multiple padding values, too
+///   }
+/// @example css Resulting CSS
+///   .example-1, .example-2 {
+///     border: 1px solid black;
+///   }
+///   .example-1 {
+///     padding: 1.9375rem;
+///   }
+///   .example-2 {
+///     padding: 0.9375rem 1.9375rem 2.9375rem;
+///   }
 @mixin border-padding($border-width, $padding-values) {
 	@each $padding in $padding-values {
 		@if $padding != null {

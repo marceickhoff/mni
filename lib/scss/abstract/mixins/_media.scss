@@ -5,8 +5,32 @@
 /// Shorthand for generating single-condition media queries based on screen width.
 /// @param {String} $operator - Comparison operator (one of: `>=`, `ge`, `>`, `gt`, `<`, `lt`, `<=`, `le`)
 /// @param {Length} $breakpoint - Screen width
-/// @param {String} $media ["all"] - Media
+/// @param {String} $media ["all"] - Media type (`all`, `screen`, `print`, etc.)
 /// @output `content`
+/// @example scss Usage
+///   .example {
+///     width: 100px; // Default
+///     @include media(">=", $breakpoint-m) {
+///       width: 200px; // For viewports larger than or equal to $breakpoint-m (720px by default)
+///     }
+///     @include media(">", $breakpoint-l) {
+///       width: 300px; // For viewports larger than $breakpoint-l (1180px by default)
+///     }
+///   }
+/// @example css Resulting CSS
+///   .example {
+///     width: 100px;
+///   }
+///   @media all and (min-width: 720px) {
+///     .example {
+///       width: 200px;
+///     }
+///   }
+///   @media all and (min-width: 1181px) {
+///     .example {
+///       width: 300px;
+///     }
+///   }
 @mixin media($operator, $breakpoint, $media: all) {
 	@if $operator == ">=" or $operator == "ge" {
 		@media #{$media} and (min-width: $breakpoint) {
