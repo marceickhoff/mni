@@ -1,7 +1,6 @@
 //----------------------------------------------------------------------------------------------------------------------
-// BOURBON
+// CSS RESET
 //
-// See https://www.bourbon.io/ for more information.
+// See https://www.npmjs.com/package/reset-css for more information.
 //----------------------------------------------------------------------------------------------------------------------
-
-@import ../../../node_modules/bourbon/core/bourbon
+@import "../../../node_modules/reset-css/sass/reset";
