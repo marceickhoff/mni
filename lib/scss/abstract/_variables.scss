@@ -2,28 +2,79 @@
 // COLORS
 //----------------------------------------------------------------------------------------------------------------------
 
-// Base color
+// General colors
+
+/// Base color.
+/// @type Color
 $color-base: rgb(30, 30, 35) !default;
 
-// Canvas color
+/// Canvas color.
+/// @type Color
 $color-canvas: rgb(255, 255, 255) !default;
 
-// Main colors
+/// Primary color.
+/// @type Color
 $color-primary: rgb(60, 170, 240) !default;
+
+/// Color contrasting `$color-primary`.
+/// @type Color
+/// @see $color-primary
 $color-primary-contrast: $color-canvas !default;
+
+/// Secondary color.
+/// @type Color
 $color-secondary: $color-base !default;
+
+/// Color contrasting `$color-secondary`.
+/// @type Color
+/// @see $color-secondary
 $color-secondary-contrast: $color-canvas !default;
 
 // State colors
+
+/// Error color. Typically some kind of red.
+/// @type Color
 $color-error: rgb(240, 0, 60) !default;
+
+/// Color contrasting `$color-error`.
+/// @type Color
+/// @see $color-error
 $color-error-contrast: $color-canvas !default;
+
+/// Warning color. Typically some kind of yellow.
+/// @type Color
 $color-warning: rgb(240, 170, 0) !default;
+
+/// Color contrasting `$color-warning`.
+/// @type Color
+/// @see $color-warning
 $color-warning-contrast: $color-canvas !default;
+
+/// Success color. Typically some kind of green.
+/// @type Color
 $color-success: rgb(0, 170, 60) !default;
+
+/// Color contrasting `$color-success`.
+/// @type Color
+/// @see $color-success
 $color-success-contrast: $color-canvas !default;
+
+/// Success color. Typically something neutral.
+/// @type Color
 $color-notice: $color-primary !default;
+
+/// Color contrasting `$color-notice`.
+/// @type Color
+/// @see $color-notice
 $color-notice-contrast: $color-canvas !default;
+
+/// Muted color. Typically some kind of gray.
+/// @type Color
 $color-muted: pitch($color-base, 90) !default;
+
+/// Color contrasting `$color-muted`.
+/// @type Color
+/// @see $color-muted
 $color-muted-contrast: pitch($color-base, 75) !default;
 
 
@@ -31,16 +82,28 @@ $color-muted-contrast: pitch($color-base, 75) !default;
 // RHYTHM
 //----------------------------------------------------------------------------------------------------------------------
 
-// Rhythm base unit
+/// Rhythm base unit
+/// @type Length
 $rhythm-unit: 16px !default;
 
-// Rhythm ratios (used for modular scale and line height multipliers)
+/// Default rhythm ratio.
+/// @type Number
 $rhythm-ratio: $major-second !default;
+
+/// Rhythm ratio for small viewports.
+/// @type Number
 $rhythm-ratio-s: $major-second !default;
+
+/// Rhythm ratio for medium viewports.
+/// @type Number
 $rhythm-ratio-m: $major-third !default;
+
+/// Rhythm ratio for large viewports.
+/// @type Number
 $rhythm-ratio-l: $perfect-fourth !default;
 
-// Show debug grid
+/// Whether to show the debug grid.
+/// @type Bool
 $rhythm-debug: false !default;
 
 
@@ -62,7 +125,12 @@ $bourbon: (
 // MODERNIZR PREFIXES
 //----------------------------------------------------------------------------------------------------------------------
 
+/// Modernizr class prefix for passed tests.
+/// @type String
 $modernizr-prefix-passed: 'supports-' !default;
+
+/// Modernizr class prefix for failed tests.
+/// @type String
 $modernizr-prefix-failed: 'supports-no-' !default;
 
 
@@ -70,22 +138,55 @@ $modernizr-prefix-failed: 'supports-no-' !default;
 // TYPOGRAPHY
 //----------------------------------------------------------------------------------------------------------------------
 
-// Size
+// Sizes
+
+/// Root font size in `px`.
+/// @type Length
 $font-size-root: $rhythm-unit !default; // px
-$font-size: modular-scale(0) !default; // same as above, but in rem
+
+/// Default font size.
+/// Same as `$font-size-root`, but in `rem`.
+/// @type Length
+/// @see $font-size-root
+$font-size: modular-scale(0) !default;
+
+/// Small font size.
+/// @type Length
+/// @see $font-size-root
 $font-size-small: modular-scale(-1) !default;
 
 // Family
+
+/// Default font stack.
+/// @type String
 $font-stack: $font-stack-helvetica !default;
+
+/// Headline font stack.
+/// @type String
 $font-stack-headline: $font-stack !default;
 
 // Weights
+
+/// Normal font weight.
+/// @type String|Number
 $font-weight-normal: normal !default;
+
+/// Bold font weight.
+/// @type String|Number
 $font-weight-bold: bold !default;
+
+/// Headline font weight.
+/// @type String|Number
 $font-weight-headline: bold !default;
 
 // Colors
+
+/// Default font color for body text.
+/// @type Color
 $font-color: pitch($color-base, 25) !default;
+
+/// Default font color for headlines.
+/// @type Color
 $font-color-headline: $color-base !default;
 
 
@@ -93,16 +194,28 @@ $font-color-headline: $color-base !default;
 // GRID
 //----------------------------------------------------------------------------------------------------------------------
 
-// Number of columns
+/// Number of grid columns.
+/// @type Number
 $grid-columns: 12 !default;
 
-// Space between cells
+/// Default space between grid cells.
+/// @type Length
 $grid-gap: rhythm(.5) !default;
+
+/// Space between grid cells on small viewports.
+/// @type Length
 $grid-gap-s: rhythm(1) !default;
+
+/// Space between grid cells on medium viewports.
+/// @type Length
 $grid-gap-m: rhythm(2) !default;
+
+/// Space between grid cells on large viewports.
+/// @type Length
 $grid-gap-l: rhythm(3) !default;
 
-// Space between cells of compact grid
+/// Space between grid cells of compact grids.
+/// @type Length
 $grid-gap-compact: $grid-gap-s !default;
 
 
@@ -110,9 +223,16 @@ $grid-gap-compact: $grid-gap-s !default;
 // LINKS
 //----------------------------------------------------------------------------------------------------------------------
 
-// Colors
+/// Default link color.
+/// @type Color
 $link-color: $color-primary !default;
+
+/// Link color for `:hover`.
+/// @type Color
 $link-color-hover: pitch($link-color, 25) !default;
+
+/// Link color for `:visited`.
+/// @type Color
 $link-color-visited: $link-color !default;
 
 
@@ -121,15 +241,33 @@ $link-color-visited: $link-color !default;
 //----------------------------------------------------------------------------------------------------------------------
 
 // Widths
+
+/// Default border with.
+/// @type Length
 $border-width: rem(1px) !default;
+
+/// Light border with.
+/// @type Length
 $border-width-light: rem(1px) !default;
 
-// Style
+// Styles
+
+/// Default border style.
+/// @type String
 $border-style: solid !default;
+
+/// Light border style.
+/// @type String
 $border-style-light: solid !default;
 
 // Colors
+
+/// Default border color.
+/// @type Color
 $border-color: pitch($color-base, 75) !default;
+
+/// Light border color.
+/// @type Color
 $border-color-light: pitch($color-base, 90) !default;
 
 
@@ -138,12 +276,27 @@ $border-color-light: pitch($color-base, 90) !default;
 //----------------------------------------------------------------------------------------------------------------------
 
 // Font
+
+/// Button font size.
+/// @type Length
 $button-font-size: $font-size !default;
+
+/// Button font stack.
+/// @type String
 $button-font-stack: $font-stack !default;
+
+/// Button font weight.
+/// @type Number|String
 $button-font-weight: $font-weight-normal !default;
 
 // Border
+
+/// Button border width for buttons that use borders.
+/// @type Length
 $button-border-width: $border-width !default;
+
+/// Button border style for buttons that use borders.
+/// @type String
 $button-border-style: $border-style !default;
 
 
@@ -151,8 +304,16 @@ $button-border-style: $border-style !default;
 // Z-INDEX
 //----------------------------------------------------------------------------------------------------------------------
 
+/// Z-index of the main navigation.
+/// @type Number
 $z-index-nav: 10 !default;
+
+/// Z-index of colored overlays.
+/// @type Number
 $z-index-overlay: 99 !default;
+
+/// Z-index of modals and similar elements.
+/// @type Number
 $z-index-modal: 100 !default;
 
 
@@ -161,14 +322,25 @@ $z-index-modal: 100 !default;
 //----------------------------------------------------------------------------------------------------------------------
 
 // Viewport widths
+
+/// Breakpoint for small viewports.
+/// @type Length
 $breakpoint-s: 480px !default;
+
+/// Breakpoint for medium viewports.
+/// @type Length
 $breakpoint-m: 720px !default;
+
+/// Breakpoint for large viewports.
+/// @type Length
 $breakpoint-l: 1180px !default;
 
-// Viewport width at which the page does not respond anymore and horizontal scroll bars appear
+/// Viewport width at which the page does not respond anymore and horizontal scroll bars appear.
+/// @type Length
 $min-viewport: 240px !default;
 
-// Maximum content width
+/// Maximum content width.
+/// @type Length
 $max-content-width: $breakpoint-l !default;
 
 
@@ -176,12 +348,22 @@ $max-content-width: $breakpoint-l !default;
 // TRANSITIONS & ANIMATIONS
 //----------------------------------------------------------------------------------------------------------------------
 
-// Interpolation function
+/// Interpolation function
+/// @type Function
 $timing-function: cubic-bezier(.85, 0, .5, 1) !default;
 
 // Timing duration
+
+/// Slow duration.
+/// @type Time
 $timing-duration-slow: .75s !default;
+
+/// Medium duration.
+/// @type Time
 $timing-duration-medium: .33s !default;
+
+/// Quick duration.
+/// @type Time
 $timing-duration-quick: .1s !default;
 
 
@@ -190,16 +372,33 @@ $timing-duration-quick: .1s !default;
 //----------------------------------------------------------------------------------------------------------------------
 
 // Drawer settings
-$nav-drawer-behind: true !default; // If the drawer should be before or behind the nav bar background
-$nav-drawer-overlay: false !default; // Dim the content behind the drawer if the drawer is opened
 
-// Dimensions
-$nav-height: rhythm(4) !default; // Total height of the nav bar
+/// Whether the drawer should be before or behind the nav bar background.
+/// @type Bool
+$nav-drawer-behind: true !default; // If the drawer should be before or behind the nav bar background
+
+/// Whether to dim the content behind the drawer while the drawer is opened
+/// @type Bool
+$nav-drawer-overlay: false !default;
+
+/// Total height of the main nav bar.
+/// @type Length
+$nav-height: rhythm(4) !default;
 
 // Hamburger icon
-$nav-hamburger-width: rhythm(2) !default; // Width of the icon
-$nav-hamburger-height: rhythm(1) !default; // Total height of the icon
-$nav-hamburger-bar-height: rem(3px) !default; // Height of the individual bars
 
-// Breakpoints
-$nav-breakpoint: $breakpoint-m !default; // At which viewport width the navigation should collapse into an off-canvas menu
+/// Total width of the hamburger icon.
+/// @type Length
+$nav-hamburger-width: rhythm(2) !default;
+
+/// Total height of the hamburger icon.
+/// @type Length
+$nav-hamburger-height: rhythm(1) !default;
+
+/// Height of an individual bar inside the hamburger icon.
+/// @type Length
+$nav-hamburger-bar-height: rem(3px) !default;
+
+/// At which viewport width the navigation should collapse into an off-canvas menu.
+/// @type Length
+$nav-breakpoint: $breakpoint-m !default;
