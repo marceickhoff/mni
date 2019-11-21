@@ -1,7 +1,12 @@
 //----------------------------------------------------------------------------------------------------------------------
-// ROOT PSEUDO ELEMENT
+// MEDIA
+//
+// Contains all styles for a media elements.
 //----------------------------------------------------------------------------------------------------------------------
 
-\:root
-	font-size: $font-size-root // For rem calculations
-	line-height: rhythm($font-size * $rhythm-ratio)
+img,
+picture,
+video {
+	display: block;
+	max-width: 100%;
+}

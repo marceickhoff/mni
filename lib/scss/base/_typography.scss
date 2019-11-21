@@ -8,74 +8,92 @@ h2,
 h3,
 h4,
 h5,
-h6
-	+headline
-	&:not(:first-child)
-		margin-top: rhythm(5)
-	margin-bottom: rhythm(2)
+h6 {
+	@include headline;
+	margin-bottom: rhythm(2);
 
+	&:not(:first-child) {
+		margin-top: rhythm(5);
+	}
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 // FONT SIZES
 //----------------------------------------------------------------------------------------------------------------------
 
-@for $i from 1 through 6
-	h#{$i}, .font-size-#{$i}
-		+adaptive-font-size(6 - $i)
+@for $i from 1 through 6 {
+	h#{$i}, .font-size-#{$i} {
+		@include adaptive-font-size(6 - $i);
+	}
+}
 
-.font-size-0
-	+adaptive-font-size(-1)
-
+.font-size-0 {
+	@include adaptive-font-size(-1);
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 // BODY TEXT
 //----------------------------------------------------------------------------------------------------------------------
 
 // Paragraphs
-p
-	&:not(:first-child)
-		margin-top: rhythm(2)
-	&:not(:last-child)
-		margin-bottom: rhythm(2)
+p {
+	&:not(:first-child) {
+		margin-top: rhythm(2);
+	}
 
+	&:not(:last-child) {
+		margin-bottom: rhythm(2);
+	}
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 // INLINE ELEMENTS
 //----------------------------------------------------------------------------------------------------------------------
 
 // Links
-a
-	color: $link-color
-	&:hover
-		color: $link-color-hover
-	&:visited
-		color: $link-color-visited
+a {
+	color: $link-color;
+
+	&:hover {
+		color: $link-color-hover;
+	}
+
+	&:visited {
+		color: $link-color-visited;
+	}
+}
 
 // Strong/bold
-strong, b, .b
-	@if $font-weight-bold != bold
-		font-weight: $font-weight-bold
+strong, b, .b {
+	@if $font-weight-bold != bold {
+		font-weight: $font-weight-bold;
+	}
+}
 
 // Emphasis/italic
-em, i, .i, dfn
-	font-style: italic
+em, i, .i, dfn {
+	font-style: italic;
+}
 
 // Underlined
-u, .u, abbr
-	text-decoration: underline
+u, .u, abbr {
+	text-decoration: underline;
+}
 
 // Small
-small, .small
-	font-size: $font-size-small
+small, .small {
+	font-size: $font-size-small;
+}
 
 // Strike
-s
-	text-decoration: line-through
+s {
+	text-decoration: line-through;
+}
 
 // Disable wrap
-.no-wrap
-	white-space: nowrap
-
+.no-wrap {
+	white-space: nowrap;
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 // QUOTATIONS

@@ -1,0 +1,30 @@
+//----------------------------------------------------------------------------------------------------------------------
+// BODY
+//----------------------------------------------------------------------------------------------------------------------
+
+body {
+	position: relative; // Allows full-height absolute-positioned children
+	min-width: $min-viewport;
+	font-family: $font-stack;
+	line-height: inherit; // Override CSS reset
+	color: $font-color; // Explicitly setting font color so browsers don't get funky here
+	background-color: $color-canvas; // Same for background color
+
+	@if $font-weight-normal != normal { // Prevent redundant declaration
+		font-weight: $font-weight-normal;
+	}
+
+	// Rhythm debug grid
+	@if $rhythm-debug {
+		&:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			@include size(100%);
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='#{strip-unit($rhythm-unit * 2)}' width='1'%3E%3Cline x1='0' y1='#{strip-unit($rhythm-unit) - 0.5}' x2='1' y2='#{strip-unit($rhythm-unit) - 0.5}' style='stroke:rgba(#{red($color-base)},#{green($color-base)},#{blue($color-base)},.05);stroke-width:1' /%3E%3Cline x1='0' y1='#{strip-unit($rhythm-unit * 2) - 0.5}' x2='1' y2='#{strip-unit($rhythm-unit * 2) - 0.5}' style='stroke:rgba(#{red($color-base)},#{green($color-base)},#{blue($color-base)},.1);stroke-width:1' /%3E%3C/svg%3E");
+			pointer-events: none;
+			z-index: 9999;
+		}
+	}
+}

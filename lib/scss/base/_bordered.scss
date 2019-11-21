@@ -1,0 +1,10 @@
+//----------------------------------------------------------------------------------------------------------------------
+// BORDERED
+//
+// Applies a default border and padding around the element.
+//----------------------------------------------------------------------------------------------------------------------
+
+.bordered {
+	@include border-padding($border-width, rhythm(1 2));
+	border: $border-width $border-style $border-color;
+}

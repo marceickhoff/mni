@@ -1,8 +1,9 @@
 //----------------------------------------------------------------------------------------------------------------------
-// FOCUS RESET
+// HEADLINE
 //
-// Removes default outline on focus. Don't forget to implement your own focus indication for accessibility!
+// Contains all styles for a headline.
 //----------------------------------------------------------------------------------------------------------------------
 
-*:focus
-	outline: none
+.headline {
+	@include headline;
+}

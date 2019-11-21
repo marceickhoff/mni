@@ -1,9 +1,9 @@
 //----------------------------------------------------------------------------------------------------------------------
-// BORDERED
+// FOCUS RESET
 //
-// Applies a default border and padding around the element.
+// Removes default outline on focus. Don't forget to implement your own focus indication for accessibility!
 //----------------------------------------------------------------------------------------------------------------------
 
-.bordered
-	border: $border-width $border-style $border-color
-	+border-padding($border-width, rhythm(1 2))
+*:focus {
+	outline: none;
+}

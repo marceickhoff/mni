@@ -1,6 +1,8 @@
 //----------------------------------------------------------------------------------------------------------------------
-// GLOBAL BOX SIZING
+// ROOT PSEUDO ELEMENT
 //----------------------------------------------------------------------------------------------------------------------
 
-*
-	box-sizing: border-box
+:root {
+	font-size: $font-size-root; // For rem calculations
+	line-height: rhythm($font-size * $rhythm-ratio);
+}

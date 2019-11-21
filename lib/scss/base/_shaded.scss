@@ -1,7 +1,9 @@
 //----------------------------------------------------------------------------------------------------------------------
-// TEXT SELECTION
+// SHADED
+//
+// Applies a subtle background color.
 //----------------------------------------------------------------------------------------------------------------------
 
-::selection
-	background: $color-primary
-	color: contrast-switch($color-primary, $color-base, $color-canvas)
+.shaded {
+	background-color: pitch($color-base, 90);
+}

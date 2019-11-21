@@ -4,13 +4,16 @@
 // Applies a padding around the element.
 //----------------------------------------------------------------------------------------------------------------------
 
-.padded
-	padding: rhythm(.5)
+.padded {
+	padding: rhythm(.5);
 
 	// Medium viewport and up
-	+media(">=", $breakpoint-m)
-		padding: rhythm(1)
++ media(">=", $breakpoint-m) {
+	padding: rhythm(1);
+}
 
 	// Large viewport and up
-	+media(">=", $breakpoint-l)
-		padding: rhythm(2)
++ media(">=", $breakpoint-l) {
+	padding: rhythm(2);
+}
+}
