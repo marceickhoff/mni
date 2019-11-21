@@ -20,12 +20,7 @@
 /// Creates a selector for targeting devices that don't support a specific CSS feature.
 /// @param {String} $feature - Feature name
 /// @output `content`
-=
-supports-no
-
-(
-$feature)
-{
+@mixin supports-no($feature) {
 	@if & {
 		.#{$modernizr-prefix-failed}#{$feature} & {
 			@content;
@@ -35,5 +30,4 @@ $feature)
 			@content;
 		}
 	}
-
 }
