@@ -1,14 +1,13 @@
 //----------------------------------------------------------------------------------------------------------------------
 // HEADLINES
 //----------------------------------------------------------------------------------------------------------------------
+////
+/// @group typography
+////
 
-// General style
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+/// Headline styles. Font size and line height will be set simultaneously when generating `.font-size-[n]` helper classes.
+/// @see .font-size-[n]
+h1, h2, h3, h4, h5, h6 {
 	@include headline;
 	margin-bottom: rhythm(2);
 
@@ -21,21 +20,22 @@ h6 {
 // FONT SIZES
 //----------------------------------------------------------------------------------------------------------------------
 
-@for $i from 1 through 6 {
-	h#{$i}, .font-size-#{$i} {
-		@include adaptive-font-size(6 - $i);
+@for $n from 1 through 6 {
+/// Sets font sizes and line heights for headlines.
+/// Font size helper classes from `font-size-1` to `font-size-6`. Numbers represent size of corresponding headline level.
+/// @name .font-size-[n]
+/// @example markup
+///   <span class="font-size-3">Text that is as large as a <h3> would normally be.</span>
+	h#{$n}, .font-size-#{$n} {
+		@include adaptive-font-size(6 - $n);
 	}
-}
-
-.font-size-0 {
-	@include adaptive-font-size(-1);
 }
 
 //----------------------------------------------------------------------------------------------------------------------
 // BODY TEXT
 //----------------------------------------------------------------------------------------------------------------------
 
-// Paragraphs
+/// Text paragraphs.
 p {
 	&:not(:first-child) {
 		margin-top: rhythm(2);
@@ -50,7 +50,7 @@ p {
 // INLINE ELEMENTS
 //----------------------------------------------------------------------------------------------------------------------
 
-// Links
+/// Link styling.
 a {
 	color: $link-color;
 
@@ -63,34 +63,44 @@ a {
 	}
 }
 
-// Strong/bold
+/// Strong/bold text.
+/// @example markup
+///   <strong>Bold text.</strong>
+///   <span class="b">Also bold.</span>
 strong, b, .b {
 	@if $font-weight-bold != bold {
 		font-weight: $font-weight-bold;
 	}
 }
 
-// Emphasis/italic
+/// Emphasis/italic
+/// @example markup
+///   <em>Italic (emphasized) text.</em>
+///   <span class="i">Also italic.</span>
 em, i, .i, dfn {
 	font-style: italic;
 }
 
-// Underlined
+/// Underlined text.
+/// @example markup
+///   <span class="u">Underlined.</span>
 u, .u, abbr {
 	text-decoration: underline;
 }
 
-// Small
+/// Small text.
+/// @example markup
+///   <span class="small">Small text.</span>
 small, .small {
 	font-size: $font-size-small;
 }
 
-// Strike
+/// Text with line-through.
 s {
 	text-decoration: line-through;
 }
 
-// Disable wrap
+/// Helper class to disable text wrap on white space.
 .no-wrap {
 	white-space: nowrap;
 }

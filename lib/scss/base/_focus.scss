@@ -4,6 +4,8 @@
 // Removes default outline on focus. Don't forget to implement your own focus indication for accessibility!
 //----------------------------------------------------------------------------------------------------------------------
 
+/// Focus styles.
+/// @group base
 *:focus {
 	outline: none;
 }

@@ -2,6 +2,8 @@
 // ROOT PSEUDO ELEMENT
 //----------------------------------------------------------------------------------------------------------------------
 
+/// Styling for the `:root` pseudo element. Contains root font size and line height.
+/// @group base
 :root {
 	font-size: $font-size-root; // For rem calculations
 	line-height: rhythm($font-size * $rhythm-ratio);

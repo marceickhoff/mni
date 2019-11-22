@@ -2,6 +2,8 @@
 // GLOBAL BOX SIZING
 //----------------------------------------------------------------------------------------------------------------------
 
+/// Global styles. Used to set `box-sizing`.
+/// @group base
 * {
 	box-sizing: border-box
 }

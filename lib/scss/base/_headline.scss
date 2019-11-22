@@ -4,6 +4,9 @@
 // Contains all styles for a headline.
 //----------------------------------------------------------------------------------------------------------------------
 
+/// Applies styles for a default headline or headline-styled text.
+/// @group base
+/// @see {mixin} headline
 .headline {
 	@include headline;
 }

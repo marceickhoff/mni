@@ -2,6 +2,8 @@
 // TEXT SELECTION
 //----------------------------------------------------------------------------------------------------------------------
 
+/// Styling for selected elements.
+/// @group base
 ::selection {
 	color: contrast-switch($color-primary, $color-base, $color-canvas);
 	background: $color-primary;

@@ -1,9 +1,9 @@
 //----------------------------------------------------------------------------------------------------------------------
 // BORDERED
-//
-// Applies a default border and padding around the element.
 //----------------------------------------------------------------------------------------------------------------------
 
+/// Applies a default border and padding around the element.
+/// @group base
 .bordered {
 	@include border-padding($border-width, rhythm(1 2));
 	border: $border-width $border-style $border-color;

@@ -2,6 +2,8 @@
 // BODY
 //----------------------------------------------------------------------------------------------------------------------
 
+/// Basic styling for the `<body>` element.
+/// @group base
 body {
 	position: relative; // Allows full-height absolute-positioned children
 	min-width: $min-viewport;
