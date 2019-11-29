@@ -3,31 +3,22 @@
   "version": "0.0.1-alpha",
   "description": "Mnimal frontend framework",
   "devDependencies": {
-    "autoprefixer": "^9.6.1",
     "bourbon": "^6.0.0",
-    "chalk": "^3.0.0",
-    "chokidar-cli": "^2.0.0",
-    "clean-css": "^4.2.1",
     "cross-env": "^6.0.3",
     "css-loader": "^3.2.0",
-    "fibers": "^4.0.1",
-    "imports-loader": "^0.8.0",
     "laravel-mix": "^5.0.0",
-    "mini-css-extract-plugin": "^0.8.0",
+    "laravel-mix-clean-css": "latest",
+    "laravel-mix-modernizr": "latest",
     "mqpacker": "^7.0.0",
-    "npm-run-all": "^4.1.5",
-    "postcss-loader": "^3.0.0",
     "resolve-url-loader": "^3.1.0",
-    "sass": "^1.23.0",
+    "sass": "^1.23.7",
     "sass-loader": "^8.0.0",
-    "sassdoc": "^2.7.1",
-    "terser-webpack-plugin": "^2.2.0",
-    "uglifyjs-webpack-plugin": "^2.2.0",
-    "vue-template-compiler": "^2.6.10",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.9",
-    "webpack-merge": "^4.2.2",
-    "webpack-modernizr-loader": "^5.0.0"
+    "vue-template-compiler": "^2.6.10"
+  },
+  "dependencies": {
+    "reset-css": "^4.0.1",
+    "vanilla-lazyload": "^12.3.0",
+    "zooming": "^2.1.1"
   },
   "author": {
     "name": "Marc Eickhoff",
@@ -41,22 +32,17 @@
   "license": "GPL-3.0",
   "scripts": {
     "docs": "sassdoc lib/scss -d docs",
-    "postinstall": "npm run dev",
-    "prepublish": "npm run prod & npm run docs",
     "dev": "npm run development",
     "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "watch": "npm run development -- --watch",
     "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
     "prod": "npm run production",
-    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "postinstall": "npm run dev",
+    "prepublish": "npm run prod & npm run docs"
   },
   "files": [
     "dist/css/main.min.css",
     "dist/js/main.min.js"
-  ],
-  "dependencies": {
-    "reset-css": "^4.0.1",
-    "vanilla-lazyload": "^12.3.0",
-    "zooming": "^2.1.1"
-  }
+  ]
 }

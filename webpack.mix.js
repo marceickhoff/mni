@@ -1,28 +1,29 @@
+// Laravel Mix
 const mix = require('laravel-mix');
-const mixClean = require('./util/mix-clean');
-mix
-	.options({
-		postCss: mix.inProduction() ? [
-			require('autoprefixer'),
-			require('mqpacker')({ sort: true })
-		] : []
-	})
-	.webpackConfig({
-		module: {
-			rules: [
-				{
-					test: /\.modernizrrc\.js$/,
-					enforce: "post",
-					loader: "webpack-modernizr-loader"
-				}
-			]
-		}
-	})
-	.sass('lib/scss/main.scss', 'dist')
-	.js('lib/js/main.js', 'dist')
-	.then(mixClean)
-	.setPublicPath('dist');
 
-if (mix.inProduction()) {
-	mix.version();
-}
+// Laravel Mix extensions
+require('laravel-mix-clean-css');
+require('laravel-mix-modernizr');
+
+// Files
+mix.sass('lib/scss/main.scss', 'dist');
+mix.js('lib/js/main.js', 'dist');
+
+// Additional PostCSS plugins
+mix.options({
+	postCss: [
+		require('mqpacker')({ sort: true })
+	]
+});
+
+// clean-css
+mix.cleanCss({
+	level: 2,
+	format: mix.inProduction() ? false : 'beautify' // Beautify only in dev mode
+});
+
+// Modernizr
+mix.modernizr();
+
+// Public path for HMR mode
+mix.setPublicPath('dist');
