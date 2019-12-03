@@ -5,33 +5,33 @@
 // Use this as a base for your own theme and comment out unneeded partials.
 //----------------------------------------------------------------------------------------------------------------------
 
-@import "mni/scss/main";
+@import "../main";
 
-@import "mni/scss/base/_body";
-@import "mni/scss/base/_bordered";
-@import "mni/scss/base/_box-sizing";
-@import "mni/scss/base/_focus";
-@import "mni/scss/base/_headline";
-@import "mni/scss/base/_media";
-@import "mni/scss/base/_padded";
-@import "mni/scss/base/_root";
-@import "mni/scss/base/_selection";
-@import "mni/scss/base/_shaded";
-@import "mni/scss/base/_typography";
+@import "../base/_body";
+@import "../base/_bordered";
+@import "../base/_box-sizing";
+@import "../base/_focus";
+@import "../base/_headline";
+@import "../base/_media";
+@import "../base/_padded";
+@import "../base/_root";
+@import "../base/_selection";
+@import "../base/_shaded";
+@import "../base/_typography";
 
-@import "mni/scss/components/_buttons";
-@import "mni/scss/components/_buttons-flat";
-@import "mni/scss/components/_buttons-ghost";
-@import "mni/scss/components/_groups";
-@import "mni/scss/components/_lazy";
-@import "mni/scss/components/_lists";
-@import "mni/scss/components/_spinner";
+@import "../components/_buttons";
+@import "../components/_buttons-flat";
+@import "../components/_buttons-ghost";
+@import "../components/_groups";
+@import "../components/_lazy";
+@import "../components/_lists";
+@import "../components/_spinner";
 
-@import "mni/scss/layout/_container";
-@import "mni/scss/layout/_content";
-@import "mni/scss/layout/_footer";
-@import "mni/scss/layout/_grid";
-@import "mni/scss/layout/_header";
-@import "mni/scss/layout/_nav";
-@import "mni/scss/layout/_subnav";
-@import "mni/scss/layout/_wrapper";
+@import "../layout/_container";
+@import "../layout/_content";
+@import "../layout/_footer";
+@import "../layout/_grid";
+@import "../layout/_header";
+@import "../layout/_nav";
+@import "../layout/_subnav";
+@import "../layout/_wrapper";
