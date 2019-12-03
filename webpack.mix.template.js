@@ -27,12 +27,3 @@ mix.modernizr();
 
 // Public path for HMR mode
 mix.setPublicPath('dist');
-
-// mni resolves
-mix.webpackConfig({
-	resolve: {
-		alias: {
-			'mni': path.resolve(__dirname, 'lib')
-		}
-	}
-});
