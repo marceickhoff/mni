@@ -9,70 +9,67 @@ const projectRoot = path.resolve(__dirname, '../../');
 const cwd = process.cwd();
 
 module.exports = function (argv) {
-	// Intro
-	console.log(chalk.bgWhiteBright(chalk.black(" Welcome to mni! ")));
-	console.log("This setup will create a boilerplate for you so you can start using mni immediately.");
-	console.log("In order to do this, you need to make some decisions about your project structure:");
-	console.log(chalk.gray(`(All paths relative to ${chalk.bold(path.resolve(cwd))})`));
+	// Intro banner
+	console.log(chalk.bgWhiteBright(chalk.black("\n              ")));
+	console.log(chalk.bgWhiteBright(chalk.black("     mni.     ")));
+	console.log(chalk.bgWhiteBright(chalk.black("              \n")));
 
 	// Questions
-	const questions = [
+	console.log(chalk.whiteBright(chalk.bold("Please choose locations for:")));
+	let questions = [
 		{
 			type: 'text',
 			name: 'srcStyle',
-			message: 'Desired location of source stylesheet (.scss or .sass):',
+			message: 'Source Sass/SCSS:',
 			initial: 'src/scss/main.scss'
 		},
 		{
 			type: 'text',
 			name: 'destStyle',
-			message: 'Desired location of compiled stylesheet:',
+			message: 'Ouput CSS:',
 			initial: 'dist/css/main.css'
 		},
 		{
 			type: 'text',
 			name: 'srcScript',
-			message: 'Desired location of source script:',
+			message: 'Source JS:',
 			initial: 'src/js/main.js'
 		},
 		{
 			type: 'text',
 			name: 'destScript',
-			message: 'Desired location of compiled script:',
+			message: 'Output JS:',
 			initial: 'dist/js/main.js'
 		},
-		{
+	];
+
+	if (fs.existsSync(`${cwd}/package.json`)) {
+		questions.push({
 			type: 'confirm',
 			name: 'addScripts',
 			message: 'Do you want to add the recommended Laravel Mix scripts to your package.json?',
 			initial: true
-		},
-	];
+		});
+	}
 
 	// Start questioning
 	(async () => {
 		const response = await prompts(questions);
 
 		// Check if all prompts were answered
-		['srcStyle', 'destStyle', 'srcScript', 'destScript', 'addScripts'].forEach(function (option) {
+		['srcStyle', 'destStyle', 'srcScript', 'destScript'].forEach(function (option) {
 			if (!response.hasOwnProperty(option)) {
 				console.log(chalk.bgYellow(chalk.black(" Setup canceled. ")));
 				return process.exit();
 			}
 		});
 
-		console.log(chalk.bgWhite(chalk.black(" That's all. Creating boilerplate now … ")));
-
-		// Generate Laravel Mix config
-		console.log(chalk.gray(`${chalk.bold('Creating')} ${cwd}/webpack.mix.js …`));
-		fs.writeFileSync(`${cwd}/webpack.mix.js`, generator(response));
-
 		// Create source stylesheet directory and entry point
-		console.log(chalk.gray(`${chalk.bold('Creating')} ${cwd}/${response.srcStyle} …`));
+		console.log("\n" + chalk.gray(`${chalk.bold('Creating')} ${cwd}/${response.srcStyle} …`));
 		await fs.mkdir(path.dirname(`${cwd}/${response.srcStyle}`), { recursive: true }, (err) => {
 			if (err) throw err;
 			let content = fs.readFileSync(path.resolve(projectRoot, 'lib/scss/themes/_boilerplate.scss'), function (err) {
-				console.log(err);
+				console.error(err);
 				if (err) throw err;
 			}).toString();
 			content = content.replace(/\.\./g, path.relative(path.dirname(`${cwd}/${response.srcStyle}`), projectRoot + '/lib/scss'));
@@ -87,12 +84,16 @@ module.exports = function (argv) {
 		await fs.mkdir(path.dirname(`${cwd}/${response.srcScript}`), { recursive: true }, (err) => {
 			if (err) throw err;
 			let content = fs.readFileSync(path.resolve(projectRoot, 'lib/js/main.js'), function (err) {
-				console.log(err);
+				console.error(err);
 				if (err) throw err;
 			}).toString();
 			content = content.replace(/\.\//g, path.relative(path.dirname(`${cwd}/${response.srcScript}`), projectRoot + '/lib/js') + '/');
 			fs.writeFileSync(`${cwd}/${response.srcScript}`, content);
 		});
+
+		// Generate Laravel Mix config
+		console.log(chalk.gray(`${chalk.bold('Creating')} ${cwd}/webpack.mix.js …`));
+		fs.writeFileSync(`${cwd}/webpack.mix.js`, generator(response));
 
 		// Copy utility config
 		console.log(chalk.gray(`${chalk.bold('Creating')} ${cwd}/.browserslistrc …`));
@@ -121,17 +122,14 @@ module.exports = function (argv) {
 				fs.writeFileSync(packageJson, JSON.stringify(pkg, null, 2));
 			}
 			catch (e) {
-				if (e.errno === -2) {
-					console.log(chalk.yellow(chalk.bold('Warning:') + ' There seems to be no package.json file here! Please go to a npm project root and try again!'));
-				}
-				else {
-					console.log(e);
-					return;
-				}
+				console.error(e);
+				return;
 			}
 		}
 
 		// Done message
-		console.log(chalk.bgGreen(chalk.black(" All done! ")) + " Thank you for using mni! Feel free to contact me if you have any issues: " + chalk.bold("mail@marceickhoff.com"));
+		console.log(chalk.bgGreen(chalk.black("\n               ")));
+		console.log(chalk.bgGreen(chalk.black("     done.     ")));
+		console.log(chalk.bgGreen(chalk.black("               \n")));
 	})();
 };
