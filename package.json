@@ -9,7 +9,7 @@
     "css-loader": "^3.2.0",
     "laravel-mix": "^5.0.0",
     "laravel-mix-clean-css": "^1.1.0",
-    "laravel-mix-modernizr": "^1.0.0",
+    "mni": "^1.0.0",
     "mqpacker": "^7.0.0",
     "prompts": "^2.3.0",
     "resolve-url-loader": "^3.1.0",
@@ -24,15 +24,19 @@
     "vanilla-lazyload": "^12.3.0",
     "zooming": "^2.1.1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marceickhoff/mni.git"
+  },
   "author": {
     "name": "Marc Eickhoff",
     "email": "mail@marceickhoff.com",
     "url": "https://marceickhoff.com/"
   },
-  "repository": "github:marceickhoff/mni",
   "bugs": {
     "url": "https://github.com/marceickhoff/mni/issues"
   },
+  "homepage": "https://github.com/marceickhoff/mni#readme",
   "license": "MIT",
   "scripts": {
     "docs": "sassdoc lib/scss -d docs",
