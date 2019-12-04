@@ -33,7 +33,7 @@
   "bugs": {
     "url": "https://github.com/marceickhoff/mni/issues"
   },
-  "license": "GPL-3.0",
+  "license": "MIT",
   "scripts": {
     "docs": "sassdoc lib/scss -d docs",
     "dev": "npm run development",
