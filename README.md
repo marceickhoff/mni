@@ -27,3 +27,30 @@ mni is meant to be used as a **base library** for you to extend on and **not a "
 This is a WIP and not ready for use in production.
 
 Detailed documentation will follow.
+
+## Installation and setup
+
+First, navigate to the root of your project and run:
+
+```
+npm i mni
+```
+
+After mni and its dependencies were installed successfully, run the setup:
+
+```
+mni setup
+```
+
+The setup will ask you to choose the desired paths for the source and destination files and create a boilerplate for your project containing the following files:
+
+* **Source Sass/SCSS:** This is the main entry point of your stylesheets. It will already contain imports of everything that mni has to offer. You can choose if you want to use the SCSS or Sass syntax by giving this file the corresponding file extension (``.scss``/``.sass``).
+* **Output CSS:** This is the publicly exposed output CSS file.
+* **Source JS:** This is the main entry point of your JavaScripts. It will already contain imports of every available mni ES6 module.
+* **Output JS:** This is the publicly exposed output JS file.
+
+Furthermore, it will create these utility files:
+
+* ``webpack.mix.js``: The main [Laravel Mix configuration file](https://laravel-mix.com/docs/5.0/basic-example) of your project
+* ``.browserlistrc``: This contains a [browserslist](https://github.com/browserslist/browserslist) that will be used by [Autoprefixer](https://github.com/postcss/autoprefixer)
+* ``.modernizrrc``: The configuration file for your project's [Modernizr](https://github.com/Modernizr/Modernizr) builds
