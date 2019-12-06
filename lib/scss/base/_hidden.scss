@@ -1,0 +1,31 @@
+//----------------------------------------------------------------------------------------------------------------------
+// HIDDEN
+//----------------------------------------------------------------------------------------------------------------------
+
+// Hide an element
+.hidden {
+	display: none !important;
+}
+
+// Viewport classes
+@each $size, $breakpoint in (
+	"s": $breakpoint-s,
+	"m": $breakpoint-m,
+	"l": $breakpoint-l,
+	"nav": $nav-breakpoint
+) {
+
+	// Hide an element only until a specific viewport size is reached
+	@include media("<", $breakpoint) {
+		.hidden-until-#{$size} {
+			display: none !important
+		}
+	}
+
+	// Hide an element only for a specific viewport size and up
+	@include media(">=", $breakpoint) {
+		.hidden-#{$size} {
+			display: none !important
+		}
+	}
+}
