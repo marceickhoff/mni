@@ -2,7 +2,8 @@
 // TABLES
 //----------------------------------------------------------------------------------------------------------------------
 
-
+/// Applies a subtle box shadow.
+/// @group base
 .shadow {
 	box-shadow: 0 0 rhythm(1) tint($color-base, 50);
 }
