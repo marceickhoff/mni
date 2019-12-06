@@ -1,0 +1,40 @@
+//----------------------------------------------------------------------------------------------------------------------
+// TABLES
+//----------------------------------------------------------------------------------------------------------------------
+
+.table {
+	th {
+		font-weight: $font-weight-bold;
+		text-align: inherit;
+	}
+
+	td {
+		@include padding(rhythm(.5) rhythm(1))
+	}
+
+	// Compact modifier (reduces cell padding)
+	&.compact {
+		@include padding(rhythm(.5))
+	}
+
+	// Removes left and right padding
+	&.align {
+		td, th {
+			&:first-child {
+				padding-left: 0;
+			}
+			&:last-child {
+				padding-right: 0;
+			}
+		}
+	}
+
+	// Alternating background on table rows
+	&.alternate {
+		tr:nth-child(odd) {
+			& > td {
+				background-color: tint($color-base, 95);
+			}
+		}
+	}
+}
