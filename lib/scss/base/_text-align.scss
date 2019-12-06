@@ -1,0 +1,23 @@
+//----------------------------------------------------------------------------------------------------------------------
+// TEXT ALIGNMENT
+//----------------------------------------------------------------------------------------------------------------------
+
+@each $value in (left, right, center, justify) {
+	.text-align-#{$value} {
+		text-align: $value;
+	}
+
+	// Viewport classes
+	@each $size, $breakpoint in (
+		"s": $breakpoint-s,
+		"m": $breakpoint-m,
+		"l": $breakpoint-l,
+		"nav": $nav-breakpoint
+	) {
+		@include media(">=", $breakpoint) {
+			.text-align-#{$size}-#{$value} {
+				text-align: $value;
+			}
+		}
+	}
+}
