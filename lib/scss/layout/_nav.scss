@@ -32,41 +32,41 @@
 ///     </div>
 ///   </nav>
 .nav {
-  @extend %viewport-padding;
-  position: absolute;
-  @include size(100%, $nav-height);
-  z-index: $z-index-nav;
+	@extend %viewport-padding;
+	position: absolute;
+	@include size(100%, $nav-height);
+	z-index: $z-index-nav;
 
-  // Attach nav to top if opened or in sticky mode
-  &.active, &.sticky {
-    position: fixed;
-    top: 0;
-  }
+	// Attach nav to top if opened or in sticky mode
+	&.active, &.sticky {
+		position: fixed;
+		top: 0;
+	}
 
-  // Element directly after the nav needs to compensate the height of the nav element
-  & + * {
-    padding-top: $nav-height;
-  }
+	// Element directly after the nav needs to compensate the height of the nav element
+	& + * {
+		padding-top: $nav-height;
+	}
 
-  // Nav background is done via pseudo element so that it allows control over z-index and animated movement
-  &:before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    @include size(100%);
-    content: "";
-  }
+	// Nav background is done via pseudo element so that it allows control over z-index and animated movement
+	&:before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: block;
+		@include size(100%);
+		content: "";
+	}
 
-  // Add flex layout to wrapper
-  .wrapper {
-    position: relative;
-    display: flex;
+	// Add flex layout to wrapper
+	.wrapper {
+		position: relative;
+		display: flex;
 
-    @if $nav-drawer-behind != true {
-      z-index: 1;
-    }
-  }
+		@if $nav-drawer-behind != true {
+			z-index: 1;
+		}
+	}
 }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -74,10 +74,10 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 .nav-logo { // Usually an "<a>" element
-  img, picture {
-    display: block;
-    height: 100%;
-  }
+	img, picture {
+		display: block;
+		height: 100%;
+	}
 }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -88,62 +88,62 @@
 
 // Button
 .nav-toggle {
-  position: relative;
-  display: block;
-  @include size($nav-hamburger-width + rhythm(2), $nav-height); // Width plus padding
-  @include margin(null rhythm(-1)); // Compensate extra padding
-  overflow: visible;
-  padding: 0 rhythm(1); // Not using mixins because we need to reset the vertical padding to 0
-  cursor: pointer;
-  border: none;
-  background: none;
+	position: relative;
+	display: block;
+	@include size($nav-hamburger-width + rhythm(2), $nav-height); // Width plus padding
+	@include margin(null rhythm(-1)); // Compensate extra padding
+	overflow: visible;
+	padding: 0 rhythm(1); // Not using mixins because we need to reset the vertical padding to 0
+	cursor: pointer;
+	border: none;
+	background: none;
 
-  // Disable toggle button if nav is not in drawer mode
-  @include media(">=", $nav-breakpoint) {
-    display: none;
-  }
+	// Disable toggle button if nav is not in drawer mode
+	@include media(">=", $nav-breakpoint) {
+		display: none;
+	}
 }
 
 // Hamburger icon
 .hamburger {
-  top: $nav-height / 2 - $nav-hamburger-bar-height / 2;
-  @include transition(background-color); // Fade out middle bar via background instead of opacity so pseudo-children stay visible
+	top: $nav-height / 2 - $nav-hamburger-bar-height / 2;
+	@include transition(background-color); // Fade out middle bar via background instead of opacity so pseudo-children stay visible
 
-  // All bars
-  &, &:before, &:after {
-    position: absolute;
-    display: block;
-    @include size($nav-hamburger-width, $nav-hamburger-bar-height);
-    background-color: $color-base;
-  }
+	// All bars
+	&, &:before, &:after {
+		position: absolute;
+		display: block;
+		@include size($nav-hamburger-width, $nav-hamburger-bar-height);
+		background-color: $color-base;
+	}
 
-  // Only top and bottom bar
-  &:before, &:after {
-    content: "";
-    @include transition(transform);
-  }
+	// Only top and bottom bar
+	&:before, &:after {
+		content: "";
+		@include transition(transform);
+	}
 
-  // Only top bar
-  &:before {
-    transform: translateY(-($nav-hamburger-height / 2 - $nav-hamburger-bar-height / 2));
-  }
+	// Only top bar
+	&:before {
+		transform: translateY(-($nav-hamburger-height / 2 - $nav-hamburger-bar-height / 2));
+	}
 
-  // Only bottom bar
-  &:after {
-    transform: translateY($nav-hamburger-height / 2 - $nav-hamburger-bar-height / 2);
-  }
+	// Only bottom bar
+	&:after {
+		transform: translateY($nav-hamburger-height / 2 - $nav-hamburger-bar-height / 2);
+	}
 
-  // Transformation to cross
-  @at-root .nav.active & {
-    background-color: transparent; // Fade out middle bar
-    &:before {
-      transform: rotate(45deg);
-    }
+	// Transformation to cross
+	@at-root .nav.active & {
+		background-color: transparent; // Fade out middle bar
+		&:before {
+			transform: rotate(45deg);
+		}
 
-    &:after {
-      transform: rotate(-45deg);
-    }
-  }
+		&:after {
+			transform: rotate(-45deg);
+		}
+	}
 }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -154,33 +154,33 @@
 
 // Nav list
 .nav-list {
-  @include media("<", $nav-breakpoint) {
-    display: block;
-  }
+	@include media("<", $nav-breakpoint) {
+		display: block;
+	}
 
-  @include media(">=", $nav-breakpoint) {
-    display: flex;
-    flex-flow: row nowrap;
-  }
+	@include media(">=", $nav-breakpoint) {
+		display: flex;
+		flex-flow: row nowrap;
+	}
 }
 
 // Single nav list item
 .nav-item {
-  display: block;
+	display: block;
 }
 
 // Link inside a nav list item
 .nav-link {
-  @extend %viewport-padding;
-  display: block;
-  overflow: hidden;
-  width: 100%;
-  text-overflow: ellipsis;
-  @include padding(rhythm(1) null);
-  @include media(">=", $nav-breakpoint) {
-    @include padding(0 rhythm(1));
-    line-height: $nav-height;
-  }
+	@extend %viewport-padding;
+	display: block;
+	overflow: hidden;
+	width: 100%;
+	text-overflow: ellipsis;
+	@include padding(rhythm(1) null);
+	@include media(">=", $nav-breakpoint) {
+		@include padding(0 rhythm(1));
+		line-height: $nav-height;
+	}
 }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -190,38 +190,38 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 .nav-drawer {
-  @include media("<", $nav-breakpoint) {
-    position: fixed;
-    z-index: -1;
-    top: 0;
-    right: 100%;
-    @include size(100%);
-    padding-top: $nav-height;
-    @include transition(transform);
+	@include media("<", $nav-breakpoint) {
+		position: fixed;
+		z-index: -1;
+		top: 0;
+		right: 100%;
+		@include size(100%);
+		padding-top: $nav-height;
+		@include transition(transform);
 
-    @if $nav-drawer-overlay {
-      &:after {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 100%;
-        @include size(100%);
-        background: rgba($color-base, 0.5);
-        opacity: 0;
-        @include transition(opacity);
-        pointer-events: none;
-      }
-    }
+		@if $nav-drawer-overlay {
+			&:after {
+				content: "";
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 100%;
+				@include size(100%);
+				background: rgba($color-base, 0.5);
+				opacity: 0;
+				@include transition(opacity);
+				pointer-events: none;
+			}
+		}
 
-    .nav.active & {
-      transform: translateX(100%);
+		.nav.active & {
+			transform: translateX(100%);
 
-      @if $nav-drawer-overlay {
-        &:after {
-          opacity: 1;
-        }
-      }
-    }
-  }
+			@if $nav-drawer-overlay {
+				&:after {
+					opacity: 1;
+				}
+			}
+		}
+	}
 }
