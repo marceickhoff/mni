@@ -2,6 +2,29 @@
 // LISTS
 //----------------------------------------------------------------------------------------------------------------------
 
+/// Lists.
+/// @group components
+/// @example markup
+///   <ul class="list">
+///     <li>List item</li>
+///     <li>List item</li>
+///     <li>List item</li>
+///   </ul>
+/// @example markup
+///   <ol class="list bordered">
+///     <li>List item</li>
+///     <li>List item</li>
+///     <li>List item</li>
+///   </ol>
+/// @example markup
+///   <dl class="list">
+///     <dt>Descriptive list title</dt>
+///     <dd>Descriptive list data</dd>
+///     <dt>Descriptive list title</dt>
+///     <dd>Descriptive list data</dd>
+///     <dt>Descriptive list title</dt>
+///     <dd>Descriptive list data</dd>
+///   </dl>
 .list {
 	// List items have padding by default
 	// This behaviour can be disabled by adding the `.compact` class

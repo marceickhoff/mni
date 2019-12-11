@@ -1,11 +1,12 @@
 //----------------------------------------------------------------------------------------------------------------------
 // BUTTONS
 //
-// Default buttons. These represent primary actions.
 // Since buttons are often times meticulously styled, the button mixin is split into 3 separate files. This is the
 // base file that is required for the other button styles to work.
 //----------------------------------------------------------------------------------------------------------------------
 
+/// Default buttons. These represent primary actions.
+/// @group components
 .button {
 	padding: rhythm(1 2);
 	cursor: pointer;

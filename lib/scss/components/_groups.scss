@@ -1,9 +1,15 @@
 //----------------------------------------------------------------------------------------------------------------------
 // GROUPS
-//
-// Align small elements (like buttons or tags) in a fluid flex layout with a gap between them.
 //----------------------------------------------------------------------------------------------------------------------
 
+/// Align small elements (like buttons or tags) in a fluid flex layout with a gap between them.
+/// @group components
+/// @example markup
+///   <div class="group">
+///     <div>Group item</div>
+///     <div>Group item</div>
+///     <div>Group item</div>
+///   </div>
 .group {
 	position: relative;
 	display: flex;

@@ -2,6 +2,30 @@
 // TABLES
 //----------------------------------------------------------------------------------------------------------------------
 
+/// Tables.
+/// @group components
+/// @example markup
+///   <table class="table">
+///     <thead>
+///       <tr>
+///         <th>Title</th>
+///         <th>Title</th>
+///         <th>Title</th>
+///       </tr>
+///     </thead>
+///     <tbody>
+///       <tr>
+///         <td>Data</td>
+///         <td>Data</td>
+///         <td>Data</td>
+///       </tr>
+///       <tr>
+///         <td>Data</td>
+///         <td>Data</td>
+///         <td>Data</td>
+///       </tr>
+///     </tbody>
+///   </table>
 .table {
 	th {
 		font-weight: $font-weight-bold;

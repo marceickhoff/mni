@@ -5,66 +5,66 @@
 // Flat buttons typically do not have a background and border and represent tertiary actions.
 //----------------------------------------------------------------------------------------------------------------------
 
-.button {
-	&.flat {
-		color: $color-base;
-		background: none;
+/// Flat buttons.
+/// @group components
+.button.flat {
+	color: $color-base;
+	background: none;
 
-		// Colors
+	// Colors
+	&.canvas {
+		color: $color-canvas;
+	}
+
+	&.error {
+		color: $color-error;
+	}
+
+	&.warning {
+		color: $color-warning;
+	}
+
+	&.success {
+		color: $color-success;
+	}
+
+	&.notice {
+		color: $color-notice;
+	}
+
+	&.muted, &[disabled] {
+		color: $color-muted;
+		background: none !important;
+	}
+
+	// States
+	&:hover {
+		color: pitch($color-base, 20);
+		background: rgba($color-base, 0.1);
+
 		&.canvas {
-			color: $color-canvas;
+			color: pitch($color-canvas, 20);
+			background: rgba($color-canvas, 0.1);
 		}
 
 		&.error {
-			color: $color-error;
+			color: pitch($color-error, 20);
+			background: rgba($color-error, 0.1);
 		}
 
 		&.warning {
-			color: $color-warning;
+			color: pitch($color-warning, 20);
+			background: rgba($color-warning, 0.1);
 		}
 
 		&.success {
-			color: $color-success;
+			color: pitch($color-success, 20);
+			background: rgba($color-success, 0.1);
 		}
 
 		&.notice {
-			color: $color-notice;
-		}
-
-		&.muted, &[disabled] {
-			color: $color-muted;
-			background: none !important;
-		}
-
-		// States
-		&:hover {
-			color: pitch($color-base, 20);
-			background: rgba($color-base, 0.1);
-
-			&.canvas {
-				color: pitch($color-canvas, 20);
-				background: rgba($color-canvas, 0.1);
-			}
-
-			&.error {
-				color: pitch($color-error, 20);
-				background: rgba($color-error, 0.1);
-			}
-
-			&.warning {
-				color: pitch($color-warning, 20);
-				background: rgba($color-warning, 0.1);
-			}
-
-			&.success {
-				color: pitch($color-success, 20);
-				background: rgba($color-success, 0.1);
-			}
-
-			&.notice {
-				color: pitch($color-notice, 20);
-				background: rgba($color-notice, 0.1);
-			}
+			color: pitch($color-notice, 20);
+			background: rgba($color-notice, 0.1);
 		}
 	}
 }

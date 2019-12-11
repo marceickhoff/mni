@@ -2,6 +2,10 @@
 // SPINNER
 //----------------------------------------------------------------------------------------------------------------------
 
+/// Spinning loading indicator.
+/// @group components
+/// @example markup
+///   <span class="spinner"></span>
 .spinner {
 	position: relative;
 	@include size(rhythm(2));
