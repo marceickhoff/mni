@@ -1,9 +1,9 @@
 //----------------------------------------------------------------------------------------------------------------------
 // CONTAINER
-//
-// Visually groups elements by applying vertical margin.
 //----------------------------------------------------------------------------------------------------------------------
 
+/// Visually groups elements by applying vertical margin.
+/// @group layout
 .container {
 	&:not(:first-child) {
 		margin-top: rhythm(3);

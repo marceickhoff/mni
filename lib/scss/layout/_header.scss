@@ -1,10 +1,9 @@
 //----------------------------------------------------------------------------------------------------------------------
 // HEADER
-//
-// Main header that usually sits above the main navigation bar. Is usually only visible on larger viewports.
 //----------------------------------------------------------------------------------------------------------------------
 
-// Main header container
+/// Main header that usually sits above the main navigation bar. Is usually only visible on larger viewports.
+/// @group layout
 .header {
 	@extend %viewport-padding;
 

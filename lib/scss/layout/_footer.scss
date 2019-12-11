@@ -1,10 +1,9 @@
 //----------------------------------------------------------------------------------------------------------------------
 // FOOTER
-//
-// Main footer that usually sits at the bottom of the page and usually contains meta links and contact info.
 //----------------------------------------------------------------------------------------------------------------------
 
-// Main footer container
+/// Main footer that usually sits at the bottom of the page and usually contains meta links and contact info.
+/// @group layout
 .footer {
 	@extend %viewport-padding;
 

@@ -2,7 +2,8 @@
 // MAIN NAVIGATION
 //----------------------------------------------------------------------------------------------------------------------
 
-// Main nav container
+/// Main navigation.
+/// @group layout
 .nav {
 	@extend %viewport-padding;
 	position: absolute;
