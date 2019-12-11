@@ -28,6 +28,8 @@ This is a WIP and not ready for use in production.
 
 Detailed documentation will follow.
 
+Please use ``npm run docs`` to generate a sassdoc documentation page in the meantime.
+
 ## Installation and setup
 
 First, navigate to the root of your project and run:
