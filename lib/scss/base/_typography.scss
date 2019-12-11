@@ -109,4 +109,17 @@ s {
 // QUOTATIONS
 //----------------------------------------------------------------------------------------------------------------------
 
-// TODO
+/// Inline quotes
+q {
+	font-style: italic;
+}
+
+/// Block quotes
+blockquote {
+	@extend p;
+}
+
+/// Citation reference
+cite {
+	font-style: italic;
+}
