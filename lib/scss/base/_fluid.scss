@@ -2,6 +2,8 @@
 // FLUID
 //----------------------------------------------------------------------------------------------------------------------
 
+/// Makes an element "fluid" by giving it the size of its parent.
+/// @group base
 .fluid {
 	width: 100%;
 }

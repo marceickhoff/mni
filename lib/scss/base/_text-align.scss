@@ -2,9 +2,12 @@
 // TEXT ALIGNMENT
 //----------------------------------------------------------------------------------------------------------------------
 
-@each $value in (left, right, center, justify) {
-	.text-align-#{$value} {
-		text-align: $value;
+@each $align in (left, right, center, justify) {
+/// Text alignment.
+/// @name .text-align-[left|right|center|justify]
+/// @group base
+	.text-align-#{$align} {
+		text-align: $align;
 	}
 
 	// Viewport classes
@@ -14,9 +17,12 @@
 		"l": $breakpoint-l,
 		"nav": $nav-breakpoint
 	) {
-		@include media(">=", $breakpoint) {
-			.text-align-#{$size}-#{$value} {
-				text-align: $value;
+/// Text alignment for specific viewports and up.
+/// @name .text-align-[s|m|l|nav]-[left|right|center|justify]
+/// @group base
+		.text-align-#{$size}-#{$align} {
+			@include media(">=", $breakpoint) {
+				text-align: $align;
 			}
 		}
 	}

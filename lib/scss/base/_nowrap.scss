@@ -2,6 +2,8 @@
 // NO-WRAP
 //----------------------------------------------------------------------------------------------------------------------
 
+/// Disables word wrapping on white spaces.
+/// @group base
 .nowrap {
 	white-space: nowrap;
 }
