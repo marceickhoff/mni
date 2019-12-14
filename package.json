@@ -1,6 +1,6 @@
 {
   "name": "mni",
-  "version": "0.2.3-alpha",
+  "version": "0.2.4-alpha",
   "description": "Mnimal frontend framework",
   "dependencies": {
     "bourbon": "^6.0.0",
@@ -49,6 +49,6 @@
     "prepublishOnly": "npm run docs && npm run prod"
   },
   "bin": {
-    "mni": "bin/cli"
+    "mni": "./bin/cli"
   }
 }
