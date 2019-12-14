@@ -48,6 +48,3 @@ mix.cleanCss({
 
 // Modernizr
 mix.modernizr();
-
-// Public path for HMR mode
-mix.setPublicPath('dist');
