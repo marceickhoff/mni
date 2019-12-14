@@ -1,6 +1,6 @@
 {
   "name": "mni",
-  "version": "0.2.0-alpha",
+  "version": "0.2.1-alpha",
   "description": "Mnimal frontend framework",
   "devDependencies": {
     "bourbon": "^6.0.0",
@@ -50,10 +50,6 @@
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "prepublishOnly": "npm run docs && npm run prod"
   },
-  "files": [
-    "dist/css/main.min.css",
-    "dist/js/main.min.js"
-  ],
   "bin": {
     "mni": "bin/cli"
   }
