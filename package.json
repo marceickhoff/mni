@@ -14,16 +14,14 @@
     "mqpacker": "^7.0.0",
     "node-sass": "^4.13.0",
     "prompts": "^2.3.0",
+    "reset-css": "^4.0.1",
     "resolve-url-loader": "^3.1.0",
     "sass": "^1.23.7",
     "sass-loader": "^8.0.0",
     "sassdoc": "^2.7.1",
-    "vue-template-compiler": "^2.6.10",
-    "yargs": "^15.0.2"
-  },
-  "dependencies": {
-    "reset-css": "^4.0.1",
     "vanilla-lazyload": "^12.3.0",
+    "vue-template-compiler": "^2.6.10",
+    "yargs": "^15.0.2",
     "zooming": "^2.1.1"
   },
   "repository": {
