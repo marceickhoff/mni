@@ -5,7 +5,7 @@ const prompts = require('prompts');
 
 const generator = require('../util/generator');
 
-const projectRoot = path.resolve(__dirname, '../../');
+const projectRoot = path.resolve(__dirname.replace('\\', '/'), '../../');
 const cwd = process.cwd();
 
 module.exports = function (argv) {
@@ -72,7 +72,7 @@ module.exports = function (argv) {
 				console.error(err);
 				if (err) throw err;
 			}).toString();
-			content = content.replace(/\.\./g, path.relative(path.dirname(`${cwd}/${response.srcStyle}`), projectRoot + '/lib/scss'));
+			content = content.replace(/\.\./g, '~mni/lib/scss');
 			if (path.extname(response.srcStyle) === '.sass') {
 				content = content.replace(/"(.*)";/g, '$1');
 			}
@@ -87,7 +87,7 @@ module.exports = function (argv) {
 				console.error(err);
 				if (err) throw err;
 			}).toString();
-			content = content.replace(/\.\//g, path.relative(path.dirname(`${cwd}/${response.srcScript}`), projectRoot + '/lib/js') + '/');
+			content = content.replace(/\.\//g,  'mni/lib/js/');
 			fs.writeFileSync(`${cwd}/${response.srcScript}`, content);
 		});
 
