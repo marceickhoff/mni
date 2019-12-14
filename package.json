@@ -1,6 +1,6 @@
 {
   "name": "mni",
-  "version": "0.2.5-alpha",
+  "version": "0.2.6-alpha",
   "description": "Mnimal frontend framework",
   "dependencies": {
     "bourbon": "^6.0.0",
