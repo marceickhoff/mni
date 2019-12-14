@@ -1,8 +1,8 @@
 {
   "name": "mni",
-  "version": "0.2.2-alpha",
+  "version": "0.2.3-alpha",
   "description": "Mnimal frontend framework",
-  "devDependencies": {
+  "dependencies": {
     "bourbon": "^6.0.0",
     "chalk": "^3.0.0",
     "cross-env": "^6.0.3",
