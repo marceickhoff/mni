@@ -14,8 +14,8 @@ mni is meant to be used as a **base library** for you to extend on and **not a "
 ## Features
 
 * Minimal styling by default so you **don't waste time overriding vendor styles**
-* Interactive CLI **setup tool**
-* Easy configuration and compilation via [Laravel Mix](https://laravel-mix.com/)
+* Interactive CLI **setup tool** with integrated **support for Laravel projects**
+* Easy configuration and compilation via [Laravel Mix](https://laravel-mix.com/) (even *without* Laravel!)
 * Out-of-the-box integration of [Autoprefixer](https://github.com/postcss/autoprefixer), [clean-css](https://github.com/jakubpawlowicz/clean-css) and [Modernizr](https://modernizr.com/)
 * **Mobile-first** and responsive styling
 * Plenty of **common features** you know and love like a sophisticated [grid system](lib/scss/layout/_grid.scss), responsive [navigation bars](lib/scss/layout/_nav.scss), [buttons](lib/scss/components/_buttons.scss), lightweight and mobile-ready [lazy loading](lib/js/modules/lazy.js) and [lightboxes](lib/js/modules/lightbox.js) for images, and [many more](lib)
@@ -50,6 +50,8 @@ The setup will ask you to choose the desired paths for the source and destinatio
 * **Output CSS:** This is the publicly exposed output CSS file.
 * **Source JS:** This is the main entry point of your JavaScripts. It will already contain imports of every available mni ES6 module.
 * **Output JS:** This is the publicly exposed output JS file.
+
+If you run the setup in the root directory of a Laravel project, the setup will detect that and suggest the default Laravel paths so you can just press <kbd>↵ Enter</kbd>.
 
 Furthermore, it will create these utility files:
 
