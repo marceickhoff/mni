@@ -14,6 +14,17 @@ module.exports = function (argv) {
 	console.log(chalk.bgWhiteBright(chalk.black("     mni.     ")));
 	console.log(chalk.bgWhiteBright(chalk.black("              \n")));
 
+	// Check if this is a Laravel project
+	let isLaravel = false;
+	let composerFile = `${cwd}/composer.json`;
+	if (fs.existsSync(composerFile)) {
+		let composerJSON = JSON.parse(fs.readFileSync(composerFile).toString());
+		if (composerJSON.require.hasOwnProperty('laravel/framework')) {
+			//console.log(chalk.blueBright("Laravel detected!"));
+			isLaravel = true;
+		}
+	}
+
 	// Questions
 	console.log(chalk.whiteBright(chalk.bold("Please choose locations for:")));
 	let questions = [
@@ -21,29 +32,29 @@ module.exports = function (argv) {
 			type: 'text',
 			name: 'srcStyle',
 			message: 'Source Sass/SCSS:',
-			initial: 'src/scss/main.scss'
+			initial: isLaravel ? 'resources/sass/app.scss' : 'src/scss/main.scss'
 		},
 		{
 			type: 'text',
 			name: 'destStyle',
 			message: 'Ouput CSS:',
-			initial: 'dist/css/main.css'
+			initial: isLaravel ? 'public/css/app.css' : 'dist/css/main.css'
 		},
 		{
 			type: 'text',
 			name: 'srcScript',
 			message: 'Source JS:',
-			initial: 'src/js/main.js'
+			initial: isLaravel ? 'resources/js/app.js' : 'src/js/main.js'
 		},
 		{
 			type: 'text',
 			name: 'destScript',
 			message: 'Output JS:',
-			initial: 'dist/js/main.js'
+			initial: isLaravel ? 'public/js/app.js' : 'dist/js/main.js'
 		},
 	];
 
-	if (fs.existsSync(`${cwd}/package.json`)) {
+	if (!isLaravel && fs.existsSync(`${cwd}/package.json`)) {
 		questions.push({
 			type: 'confirm',
 			name: 'addScripts',
@@ -65,7 +76,7 @@ module.exports = function (argv) {
 		});
 
 		// Create source stylesheet directory and entry point
-		console.log("\n" + chalk.gray(`${chalk.bold('Creating')} ${cwd}/${response.srcStyle} …`));
+		console.log("\n" + chalk.gray(`${chalk.bold('Writing')} ${cwd}/${response.srcStyle} …`));
 		await fs.mkdir(path.dirname(`${cwd}/${response.srcStyle}`), { recursive: true }, (err) => {
 			if (err) throw err;
 			let content = fs.readFileSync(path.resolve(projectRoot, 'lib/scss/themes/_boilerplate.scss'), function (err) {
@@ -73,14 +84,19 @@ module.exports = function (argv) {
 				if (err) throw err;
 			}).toString();
 			content = content.replace(/\.\./g, '~mni/lib/scss');
+			let targetFile = `${cwd}/${response.srcStyle}`;
+			/*if (fs.existsSync(targetFile)) {
+				let oldContent = fs.readFileSync(targetFile).toString();
+				content = oldContent + '\n' + content;
+			}*/
 			if (path.extname(response.srcStyle) === '.sass') {
 				content = content.replace(/"(.*)";/g, '$1');
 			}
-			fs.writeFileSync(`${cwd}/${response.srcStyle}`, content);
+			fs.writeFileSync(targetFile, content);
 		});
 
 		// Create source script directory and entry point
-		console.log(chalk.gray(`${chalk.bold('Creating')} ${cwd}/${response.srcScript} …`));
+		console.log(chalk.gray(`${chalk.bold('Writing')} ${cwd}/${response.srcScript} …`));
 		await fs.mkdir(path.dirname(`${cwd}/${response.srcScript}`), { recursive: true }, (err) => {
 			if (err) throw err;
 			let content = fs.readFileSync(path.resolve(projectRoot, 'lib/js/main.js'), function (err) {
@@ -88,18 +104,47 @@ module.exports = function (argv) {
 				if (err) throw err;
 			}).toString();
 			content = content.replace(/\.\//g,  'mni/lib/js/');
-			fs.writeFileSync(`${cwd}/${response.srcScript}`, content);
+			let targetFile = `${cwd}/${response.srcScript}`;
+			/*if (fs.existsSync(targetFile)) {
+				let oldContent = fs.readFileSync(targetFile).toString();
+				content = oldContent + '\n' + content;
+			}*/
+			fs.writeFileSync(targetFile, content);
 		});
 
 		// Generate Laravel Mix config
-		console.log(chalk.gray(`${chalk.bold('Creating')} ${cwd}/webpack.mix.js …`));
-		fs.writeFileSync(`${cwd}/webpack.mix.js`, generator(response));
+		let mixTargetFile = `${cwd}/webpack.mix.js`;
+		let mniMixConfig = generator(response);
+		if (fs.existsSync(mixTargetFile)) {
+			let mixBackupFile = `${cwd}/webpack.mix.old.js`;
+			let i = 1;
+			while (fs.existsSync(mixBackupFile)) {
+				mixBackupFile = `${cwd}/webpack.mix.old-${i++}.js`;
+			}
+			if (isLaravel) {
+				console.log(chalk.gray(`${chalk.bold('Writing backup')} ${mixBackupFile} …`));
+			}
+			else {
+				console.log(chalk.yellow(`${chalk.bold('Warning:')} ${mixTargetFile} already exists!`));
+				console.log(chalk.yellow(`${chalk.bold('→ Writing backup')} ${mixBackupFile} …`));
+				console.log(chalk.yellow('  (You can safely delete that file if you don\'t need it)'));
+			}
+			fs.copyFileSync(mixTargetFile, mixBackupFile);
+		}
+		console.log(chalk.gray(`${chalk.bold('Writing')} ${mixTargetFile} …`));
+		fs.writeFileSync(mixTargetFile, mniMixConfig);
 
 		// Copy utility config
-		console.log(chalk.gray(`${chalk.bold('Creating')} ${cwd}/.browserslistrc …`));
-		fs.copyFileSync(path.resolve(projectRoot, '.browserslistrc'), `${cwd}/.browserslistrc`);
-		console.log(chalk.gray(`${chalk.bold('Creating')} ${cwd}/.modernizrrc …`));
-		fs.copyFileSync(path.resolve(projectRoot, '.modernizrrc'), `${cwd}/.modernizrrc`);
+		let browserslistTargetFile = `${cwd}/.browserslistrc`;
+		if (!fs.existsSync(browserslistTargetFile)) {
+			console.log(chalk.gray(`${chalk.bold('Writing')} ${browserslistTargetFile} …`));
+			fs.copyFileSync(path.resolve(projectRoot, '.browserslistrc'), browserslistTargetFile);
+		}
+		let modernizrTargetFile = `${cwd}/.modernizrrc`;
+		if (!fs.existsSync(modernizrTargetFile)) {
+			console.log(chalk.gray(`${chalk.bold('Writing')} ${modernizrTargetFile} …`));
+			fs.copyFileSync(path.resolve(projectRoot, '.browserslistrc'), modernizrTargetFile);
+		}
 
 		// Add scripts to package.json
 		if (response.addScripts) {
