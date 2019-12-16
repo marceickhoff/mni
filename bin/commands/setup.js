@@ -8,6 +8,12 @@ const generator = require('../util/generator');
 const projectRoot = path.resolve(__dirname.replace('\\', '/'), '../../');
 const cwd = process.cwd();
 
+function backup(file) {
+	let backupFile = `${file}.${Date.now() / 1000 | 0}.backup`;
+	console.log(chalk.gray(`${chalk.bold('Creating backup')} ${backupFile} …`));
+	fs.copyFileSync(file, backupFile);
+}
+
 module.exports = function (argv) {
 	// Intro banner
 	console.log(chalk.bgWhiteBright(chalk.black("\n              ")));
@@ -75,8 +81,12 @@ module.exports = function (argv) {
 			}
 		});
 
+		// Empty line for nice formatting
+		console.log();
+
 		// Create source stylesheet directory and entry point
-		console.log("\n" + chalk.gray(`${chalk.bold('Writing')} ${cwd}/${response.srcStyle} …`));
+		if (fs.existsSync(`${cwd}/${response.srcStyle}`) && !argv.noBackups) backup(`${cwd}/${response.srcStyle}`);
+		console.log(chalk.gray(`${chalk.bold('Writing')} ${cwd}/${response.srcStyle} …`));
 		await fs.mkdir(path.dirname(`${cwd}/${response.srcStyle}`), { recursive: true }, (err) => {
 			if (err) throw err;
 			let content = fs.readFileSync(path.resolve(projectRoot, 'lib/scss/themes/_boilerplate.scss'), function (err) {
@@ -84,18 +94,14 @@ module.exports = function (argv) {
 				if (err) throw err;
 			}).toString();
 			content = content.replace(/\.\./g, '~mni/lib/scss');
-			let targetFile = `${cwd}/${response.srcStyle}`;
-			/*if (fs.existsSync(targetFile)) {
-				let oldContent = fs.readFileSync(targetFile).toString();
-				content = oldContent + '\n' + content;
-			}*/
 			if (path.extname(response.srcStyle) === '.sass') {
 				content = content.replace(/"(.*)";/g, '$1');
 			}
-			fs.writeFileSync(targetFile, content);
+			fs.writeFileSync(`${cwd}/${response.srcStyle}`, content);
 		});
 
 		// Create source script directory and entry point
+		if (fs.existsSync(`${cwd}/${response.srcScript}`) && !argv.noBackups) backup(`${cwd}/${response.srcScript}`);
 		console.log(chalk.gray(`${chalk.bold('Writing')} ${cwd}/${response.srcScript} …`));
 		await fs.mkdir(path.dirname(`${cwd}/${response.srcScript}`), { recursive: true }, (err) => {
 			if (err) throw err;
@@ -104,33 +110,13 @@ module.exports = function (argv) {
 				if (err) throw err;
 			}).toString();
 			content = content.replace(/\.\//g,  'mni/lib/js/');
-			let targetFile = `${cwd}/${response.srcScript}`;
-			/*if (fs.existsSync(targetFile)) {
-				let oldContent = fs.readFileSync(targetFile).toString();
-				content = oldContent + '\n' + content;
-			}*/
-			fs.writeFileSync(targetFile, content);
+			fs.writeFileSync(`${cwd}/${response.srcScript}`, content);
 		});
 
 		// Generate Laravel Mix config
 		let mixTargetFile = `${cwd}/webpack.mix.js`;
 		let mniMixConfig = generator(response);
-		if (fs.existsSync(mixTargetFile)) {
-			let mixBackupFile = `${cwd}/webpack.mix.old.js`;
-			let i = 1;
-			while (fs.existsSync(mixBackupFile)) {
-				mixBackupFile = `${cwd}/webpack.mix.old-${i++}.js`;
-			}
-			if (isLaravel) {
-				console.log(chalk.gray(`${chalk.bold('Writing backup')} ${mixBackupFile} …`));
-			}
-			else {
-				console.log(chalk.yellow(`${chalk.bold('Warning:')} ${mixTargetFile} already exists!`));
-				console.log(chalk.yellow(`${chalk.bold('→ Writing backup')} ${mixBackupFile} …`));
-				console.log(chalk.yellow('  (You can safely delete that file if you don\'t need it)'));
-			}
-			fs.copyFileSync(mixTargetFile, mixBackupFile);
-		}
+		if (fs.existsSync(mixTargetFile) && !argv.noBackups) backup(mixTargetFile);
 		console.log(chalk.gray(`${chalk.bold('Writing')} ${mixTargetFile} …`));
 		fs.writeFileSync(mixTargetFile, mniMixConfig);
 
