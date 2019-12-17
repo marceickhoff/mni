@@ -16,6 +16,10 @@ $breakpoint-m: 720px !default;
 /// @type Length
 $breakpoint-l: 1180px !default;
 
+/// Breakpoint where the design switches from mobile to desktop.
+/// @type Length
+$breakpoint-switch: $breakpoint-m !default;
+
 /// Viewport width at which the page does not respond anymore and horizontal scroll bars appear.
 /// @type Length
 $min-viewport: 240px !default;

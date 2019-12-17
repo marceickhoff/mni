@@ -123,7 +123,7 @@
 	"s": $breakpoint-s,
 	"m": $breakpoint-m,
 	"l": $breakpoint-l,
-	"nav": $nav-breakpoint
+	"switch": $breakpoint-switch
 ) {
 	@include media(">=", $breakpoint) {
 		@for $i from 1 through $grid-columns {

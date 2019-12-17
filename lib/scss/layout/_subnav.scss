@@ -14,7 +14,7 @@
 	}
 
 	// Desktop nav
-	@include media(">", $nav-breakpoint) {
+	@include media(">", $breakpoint-switch) {
 		position: absolute;
 		background: $color-canvas;
 	}
@@ -37,7 +37,7 @@
 	@include padding(rhythm(1) null);
 
 	// Desktop nav
-	@include media(">", $nav-breakpoint) {
+	@include media(">", $breakpoint-switch) {
 		padding: rhythm(0.5 1);
 	}
 }

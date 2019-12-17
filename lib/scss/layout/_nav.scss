@@ -30,10 +30,6 @@ $nav-hamburger-height: rhythm(1) !default;
 /// @type Length
 $nav-hamburger-bar-height: rem(3px) !default;
 
-/// At which viewport width the navigation should collapse into an off-canvas menu.
-/// @type Length
-$nav-breakpoint: $breakpoint-m !default;
-
 
 //----------------------------------------------------------------------------------------------------------------------
 // MAIN NAVIGATION
@@ -136,7 +132,7 @@ $nav-breakpoint: $breakpoint-m !default;
 	background: none;
 
 	// Disable toggle button if nav is not in drawer mode
-	@include media(">=", $nav-breakpoint) {
+	@include media(">=", $breakpoint-switch) {
 		display: none;
 	}
 }
@@ -191,11 +187,11 @@ $nav-breakpoint: $breakpoint-m !default;
 
 // Nav list
 .nav-list {
-	@include media("<", $nav-breakpoint) {
+	@include media("<", $breakpoint-switch) {
 		display: block;
 	}
 
-	@include media(">=", $nav-breakpoint) {
+	@include media(">=", $breakpoint-switch) {
 		display: flex;
 		flex-flow: row nowrap;
 	}
@@ -214,7 +210,7 @@ $nav-breakpoint: $breakpoint-m !default;
 	width: 100%;
 	text-overflow: ellipsis;
 	@include padding(rhythm(1) null);
-	@include media(">=", $nav-breakpoint) {
+	@include media(">=", $breakpoint-switch) {
 		@include padding(0 rhythm(1));
 		line-height: $nav-height;
 	}
@@ -227,7 +223,7 @@ $nav-breakpoint: $breakpoint-m !default;
 //----------------------------------------------------------------------------------------------------------------------
 
 .nav-drawer {
-	@include media("<", $nav-breakpoint) {
+	@include media("<", $breakpoint-switch) {
 		position: fixed;
 		z-index: -1;
 		top: 0;
