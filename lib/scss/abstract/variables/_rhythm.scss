@@ -1,0 +1,27 @@
+//----------------------------------------------------------------------------------------------------------------------
+// RHYTHM
+//----------------------------------------------------------------------------------------------------------------------
+
+/// Rhythm base unit
+/// @type Length
+$rhythm-unit: 16px !default;
+
+/// Default rhythm ratio.
+/// @type Number
+$rhythm-ratio: $major-second !default;
+
+/// Rhythm ratio for small viewports.
+/// @type Number
+$rhythm-ratio-s: $major-second !default;
+
+/// Rhythm ratio for medium viewports.
+/// @type Number
+$rhythm-ratio-m: $major-third !default;
+
+/// Rhythm ratio for large viewports.
+/// @type Number
+$rhythm-ratio-l: $perfect-fourth !default;
+
+/// Whether to show the debug grid.
+/// @type Bool
+$rhythm-debug: false !default;

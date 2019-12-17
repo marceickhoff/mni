@@ -1,0 +1,11 @@
+//----------------------------------------------------------------------------------------------------------------------
+// MODERNIZR PREFIXES
+//----------------------------------------------------------------------------------------------------------------------
+
+/// Modernizr class prefix for passed tests.
+/// @type String
+$modernizr-prefix-passed: 'supports-' !default;
+
+/// Modernizr class prefix for failed tests.
+/// @type String
+$modernizr-prefix-failed: 'supports-no-' !default;

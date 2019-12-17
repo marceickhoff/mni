@@ -1,0 +1,68 @@
+//----------------------------------------------------------------------------------------------------------------------
+// TYPOGRAPHY
+//----------------------------------------------------------------------------------------------------------------------
+
+// Sizes
+
+/// Root font size in `px`.
+/// @type Length
+$font-size-root: $rhythm-unit !default; // px
+
+/// Default font size.
+/// Same as `$font-size-root`, but in `rem`.
+/// @type Length
+/// @see $font-size-root
+$font-size: modular-scale(0) !default;
+
+/// Small font size.
+/// @type Length
+/// @see $font-size-root
+$font-size-small: modular-scale(-1) !default;
+
+// Family
+
+/// Default font stack.
+/// @type String
+$font-stack: $font-stack-helvetica !default;
+
+/// Headline font stack.
+/// @type String
+$font-stack-headline: $font-stack !default;
+
+// Weights
+
+/// Normal font weight.
+/// @type String|Number
+$font-weight-normal: normal !default;
+
+/// Bold font weight.
+/// @type String|Number
+$font-weight-bold: bold !default;
+
+/// Headline font weight.
+/// @type String|Number
+$font-weight-headline: bold !default;
+
+// Colors
+
+/// Default font color for body text.
+/// @type Color
+$font-color: pitch($color-base, 25) !default;
+
+/// Default font color for headlines.
+/// @type Color
+$font-color-headline: $color-base !default;
+
+// Links
+
+/// Default link color.
+/// @type Color
+$link-color: $color-primary !default;
+
+/// Link color for `:hover`.
+/// @type Color
+$link-color-hover: pitch($link-color, 25) !default;
+
+/// Link color for `:visited`.
+/// @type Color
+$link-color-visited: $link-color !default;

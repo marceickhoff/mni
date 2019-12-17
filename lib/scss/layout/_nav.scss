@@ -1,4 +1,41 @@
 //----------------------------------------------------------------------------------------------------------------------
+// MAIN NAVIGATION VARIABLES
+//----------------------------------------------------------------------------------------------------------------------
+
+// Drawer settings
+
+/// Whether the drawer should be before or behind the nav bar background.
+/// @type Bool
+$nav-drawer-behind: true !default; // If the drawer should be before or behind the nav bar background
+
+/// Whether to dim the content behind the drawer while the drawer is opened
+/// @type Bool
+$nav-drawer-overlay: false !default;
+
+/// Total height of the main nav bar.
+/// @type Length
+$nav-height: rhythm(4) !default;
+
+// Hamburger icon
+
+/// Total width of the hamburger icon.
+/// @type Length
+$nav-hamburger-width: rhythm(2) !default;
+
+/// Total height of the hamburger icon.
+/// @type Length
+$nav-hamburger-height: rhythm(1) !default;
+
+/// Height of an individual bar inside the hamburger icon.
+/// @type Length
+$nav-hamburger-bar-height: rem(3px) !default;
+
+/// At which viewport width the navigation should collapse into an off-canvas menu.
+/// @type Length
+$nav-breakpoint: $breakpoint-m !default;
+
+
+//----------------------------------------------------------------------------------------------------------------------
 // MAIN NAVIGATION
 //----------------------------------------------------------------------------------------------------------------------
 

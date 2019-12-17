@@ -1,0 +1,21 @@
+//----------------------------------------------------------------------------------------------------------------------
+// TRANSITIONS & ANIMATIONS
+//----------------------------------------------------------------------------------------------------------------------
+
+/// Interpolation function
+/// @type Function
+$timing-function: cubic-bezier(.85, 0, .5, 1) !default;
+
+// Timing duration
+
+/// Slow duration.
+/// @type Time
+$timing-duration-slow: .75s !default;
+
+/// Medium duration.
+/// @type Time
+$timing-duration-medium: .33s !default;
+
+/// Quick duration.
+/// @type Time
+$timing-duration-quick: .1s !default;

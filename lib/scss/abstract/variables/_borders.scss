@@ -1,0 +1,33 @@
+//----------------------------------------------------------------------------------------------------------------------
+// BORDERS
+//----------------------------------------------------------------------------------------------------------------------
+
+// Widths
+
+/// Default border with.
+/// @type Length
+$border-width: rem(1px) !default;
+
+/// Light border with.
+/// @type Length
+$border-width-light: rem(1px) !default;
+
+// Styles
+
+/// Default border style.
+/// @type String
+$border-style: solid !default;
+
+/// Light border style.
+/// @type String
+$border-style-light: solid !default;
+
+// Colors
+
+/// Default border color.
+/// @type Color
+$border-color: pitch($color-base, 75) !default;
+
+/// Light border color.
+/// @type Color
+$border-color-light: pitch($color-base, 90) !default;

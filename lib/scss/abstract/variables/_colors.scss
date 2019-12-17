@@ -1,0 +1,78 @@
+//----------------------------------------------------------------------------------------------------------------------
+// COLORS
+//----------------------------------------------------------------------------------------------------------------------
+
+// General colors
+
+/// Base color.
+/// @type Color
+$color-base: rgb(30, 30, 35) !default;
+
+/// Canvas color.
+/// @type Color
+$color-canvas: rgb(255, 255, 255) !default;
+
+/// Primary color.
+/// @type Color
+$color-primary: rgb(60, 170, 240) !default;
+
+/// Color contrasting `$color-primary`.
+/// @type Color
+/// @see $color-primary
+$color-primary-contrast: $color-canvas !default;
+
+/// Secondary color.
+/// @type Color
+$color-secondary: $color-base !default;
+
+/// Color contrasting `$color-secondary`.
+/// @type Color
+/// @see $color-secondary
+$color-secondary-contrast: $color-canvas !default;
+
+// State colors
+
+/// Error color. Typically some kind of red.
+/// @type Color
+$color-error: rgb(240, 0, 60) !default;
+
+/// Color contrasting `$color-error`.
+/// @type Color
+/// @see $color-error
+$color-error-contrast: $color-canvas !default;
+
+/// Warning color. Typically some kind of yellow.
+/// @type Color
+$color-warning: rgb(240, 170, 0) !default;
+
+/// Color contrasting `$color-warning`.
+/// @type Color
+/// @see $color-warning
+$color-warning-contrast: $color-canvas !default;
+
+/// Success color. Typically some kind of green.
+/// @type Color
+$color-success: rgb(0, 170, 60) !default;
+
+/// Color contrasting `$color-success`.
+/// @type Color
+/// @see $color-success
+$color-success-contrast: $color-canvas !default;
+
+/// Success color. Typically something neutral.
+/// @type Color
+$color-notice: $color-primary !default;
+
+/// Color contrasting `$color-notice`.
+/// @type Color
+/// @see $color-notice
+$color-notice-contrast: $color-canvas !default;
+
+/// Muted color. Typically some kind of gray.
+/// @type Color
+$color-muted: pitch($color-base, 90) !default;
+
+/// Color contrasting `$color-muted`.
+/// @type Color
+/// @see $color-muted
+$color-muted-contrast: pitch($color-base, 75) !default;

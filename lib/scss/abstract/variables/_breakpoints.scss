@@ -1,0 +1,25 @@
+//----------------------------------------------------------------------------------------------------------------------
+// BREAKPOINTS
+//----------------------------------------------------------------------------------------------------------------------
+
+// Viewport widths
+
+/// Breakpoint for small viewports.
+/// @type Length
+$breakpoint-s: 480px !default;
+
+/// Breakpoint for medium viewports.
+/// @type Length
+$breakpoint-m: 720px !default;
+
+/// Breakpoint for large viewports.
+/// @type Length
+$breakpoint-l: 1180px !default;
+
+/// Viewport width at which the page does not respond anymore and horizontal scroll bars appear.
+/// @type Length
+$min-viewport: 240px !default;
+
+/// Maximum content width.
+/// @type Length
+$max-content-width: $breakpoint-l !default;

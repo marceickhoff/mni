@@ -1,0 +1,27 @@
+//----------------------------------------------------------------------------------------------------------------------
+// GRID
+//----------------------------------------------------------------------------------------------------------------------
+
+/// Number of grid columns.
+/// @type Number
+$grid-columns: 12 !default;
+
+/// Default space between grid cells.
+/// @type Length
+$grid-gap: rhythm(.5) !default;
+
+/// Space between grid cells on small viewports.
+/// @type Length
+$grid-gap-s: rhythm(1) !default;
+
+/// Space between grid cells on medium viewports.
+/// @type Length
+$grid-gap-m: rhythm(2) !default;
+
+/// Space between grid cells on large viewports.
+/// @type Length
+$grid-gap-l: rhythm(3) !default;
+
+/// Space between grid cells of compact grids.
+/// @type Length
+$grid-gap-compact: $grid-gap-s !default;

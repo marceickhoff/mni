@@ -1,4 +1,33 @@
 //----------------------------------------------------------------------------------------------------------------------
+// BUTTON VARIABLES
+//----------------------------------------------------------------------------------------------------------------------
+
+// Font
+
+/// Button font size.
+/// @type Length
+$button-font-size: $font-size !default;
+
+/// Button font stack.
+/// @type String
+$button-font-stack: $font-stack !default;
+
+/// Button font weight.
+/// @type Number|String
+$button-font-weight: $font-weight-normal !default;
+
+// Border
+
+/// Button border width for buttons that use borders.
+/// @type Length
+$button-border-width: $border-width !default;
+
+/// Button border style for buttons that use borders.
+/// @type String
+$button-border-style: $border-style !default;
+
+
+//----------------------------------------------------------------------------------------------------------------------
 // BUTTONS
 //
 // Since buttons are often times meticulously styled, the button mixin is split into 3 separate files. This is the
