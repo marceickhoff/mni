@@ -1,10 +1,15 @@
 #!/usr/bin/env node
 
-const yargs = require('yargs')
-yargs.command('setup', 'Create a boilerplate interactively.', (yargs) => {}, require('./commands/setup'))
-.help('h')
-.showHelpOnFail(true)
-.alias('h', 'help')
-.alias('v', 'version')
-.demandCommand()
-.argv;
+require('yargs')
+	.command('setup', 'Create a boilerplate interactively.', (yargs) => {
+		yargs.positional('-b', {
+			alias: '--no-backups',
+			describe: 'Create no backup files if given files already exist'
+		})
+	}, require('./commands/setup'))
+	.help('h')
+	.showHelpOnFail(true)
+	.alias('h', 'help')
+	.alias('v', 'version')
+	.demandCommand()
+	.argv;

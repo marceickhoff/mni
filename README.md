@@ -51,9 +51,15 @@ The setup will ask you to choose the desired paths for the source and destinatio
 * **Source JS:** This is the main entry point of your JavaScripts. It will already contain imports of every available mni ES6 module.
 * **Output JS:** This is the publicly exposed output JS file.
 
+If a source file already exists, the setup will create a backup before overriding the file. If you're sure about what you're doing, use the following flag to skip the creation of backup files:
+
+```
+mni setup --no-backups
+```
+
 If you run the setup in the root directory of a Laravel project, the setup will detect that and suggest the default Laravel paths so you can just press <kbd>↵ Enter</kbd>.
 
-Furthermore, it will create these utility files:
+Furthermore, the setup script will create these utility files if they don't already exist:
 
 * ``webpack.mix.js``: The main [Laravel Mix configuration file](https://laravel-mix.com/docs/5.0/basic-example) of your project
 * ``.browserlistrc``: This contains a [browserslist](https://github.com/browserslist/browserslist) that will be used by [Autoprefixer](https://github.com/postcss/autoprefixer)
