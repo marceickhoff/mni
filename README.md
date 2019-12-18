@@ -52,8 +52,9 @@ The setup will ask you to choose the desired paths for the source and destinatio
 
 If you run the setup in the root directory of a Laravel project, the setup will detect that and suggest the default Laravel paths so you can just press <kbd>↵ Enter</kbd>.
 
+The setup will generate a custom ``webpack.mix.js`` config file based on your inputs that is used by Laravel Mix for the compilation of your project.
+
 Furthermore, the setup script will create these utility files if they don't already exist:
 
-* ``webpack.mix.js``: The main [Laravel Mix configuration file](https://laravel-mix.com/docs/5.0/basic-example) of your project
 * ``.browserlistrc``: This contains a [browserslist](https://github.com/browserslist/browserslist) that will be used by [Autoprefixer](https://github.com/postcss/autoprefixer)
 * ``.modernizrrc``: The configuration file for your project's [Modernizr](https://github.com/Modernizr/Modernizr) builds
