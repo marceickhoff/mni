@@ -42,7 +42,7 @@ After mni and its dependencies were installed successfully, run the setup:
 mni setup
 ```
 
-The setup will ask you to choose the desired paths for the source and destination files and create a boilerplate for your project containing the following files:
+The setup will ask you to choose the desired paths for the source and destination files and create a boilerplate for your project:
 
 * **Public path (location of mix-manifest.json):** This is the directory for the compiled stylesheets and scripts that is publicly available. This is also where the ``mix-manifest.json`` will be created when compiling.
 * **Source Sass/SCSS file:** This is the main entry point of your stylesheets. It will already contain imports of everything that mni has to offer. You can choose if you want to use the SCSS or Sass syntax by giving this file the corresponding file extension (``.scss``/``.sass``).
