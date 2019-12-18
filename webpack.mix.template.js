@@ -9,6 +9,9 @@ require('laravel-mix-modernizr');
 mix.sass('%srcStyle%', '%destStyle%');
 mix.js('%srcScript%', '%destScript%');
 
+// Public path
+mix.setPublicPath('%publicPath%');
+
 // Additional PostCSS plugins
 mix.options({
 	postCss: [
