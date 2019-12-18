@@ -46,13 +46,10 @@ const setup = {
 		if (response.srcScriptOverride === false) return;
 		console.log(chalk.gray(`${chalk.bold('Writing')} ${cwd}/${response.srcStyle} …`));
 		fs.mkdirSync(path.dirname(`${cwd}/${response.srcStyle}`), { recursive: true });
-		let content = fs.readFileSync(path.resolve(projectRoot, 'lib/scss/themes/_boilerplate.scss'), function (err) {
-			console.error(err);
-			if (err) throw err;
-		}).toString();
-		content = content.replace(/\.\./g, '~mni/lib/scss');
+		let content = fs.readFileSync(path.resolve(projectRoot, 'lib/scss/main.scss')).toString();
+		content = content.replace(/(@import\s*['"])/g, '$1~mni/lib/scss');
 		if (path.extname(response.srcStyle) === '.sass') {
-			content = content.replace(/"(.*)";/g, '$1');
+			content = content.replace(/(@import)\s*["'](.*)["']\s*;/g, '$1 $2');
 		}
 		fs.writeFileSync(`${cwd}/${response.srcStyle}`, content);
 	},
@@ -61,7 +58,7 @@ const setup = {
 		console.log(chalk.gray(`${chalk.bold('Writing')} ${cwd}/${response.srcScript} …`));
 		fs.mkdirSync(path.dirname(`${cwd}/${response.srcScript}`), { recursive: true });
 		let content = fs.readFileSync(path.resolve(projectRoot, 'lib/js/main.js')).toString();
-		content = content.replace(/\.\//g,  'mni/lib/js/');
+		content = content.replace(/(require\s*\(\s*['"])\./g,  '%1mni/lib/js');
 		fs.writeFileSync(`${cwd}/${response.srcScript}`, content);
 	},
 	addScriptsToPackageJSON: function (response) {
