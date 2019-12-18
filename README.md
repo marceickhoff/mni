@@ -48,9 +48,9 @@ The setup will ask you to choose the desired paths for the source and destinatio
 
 * **Public path (location of mix-manifest.json):** This is the directory for the compiled stylesheets and scripts that is publicly available. This is also where the ``mix-manifest.json`` will be created when compiling.
 * **Source Sass/SCSS file:** This is the main entry point of your stylesheets. It will already contain imports of everything that mni has to offer. You can choose if you want to use the SCSS or Sass syntax by giving this file the corresponding file extension (``.scss``/``.sass``).
-* **Output CSS file:** This is the publicly exposed output CSS file.
+* **Output CSS file:** This is the compiled output CSS file. It should be located somewhere inside the public path.
 * **Source JS file:** This is the main entry point of your JavaScripts. It will already contain imports of every available mni ES6 module.
-* **Output JS file:** This is the publicly exposed output JS file.
+* **Output JS file:** This is the compiled output JS file. It should be located somewhere inside the public path.
 
 If you run the setup in the root directory of a Laravel project, the setup will detect that and suggest the default Laravel paths so you can just press <kbd>↵ Enter</kbd>.
 
