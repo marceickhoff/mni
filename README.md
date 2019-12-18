@@ -1,7 +1,5 @@
 # mni
 [![Latest Version on NPM](https://img.shields.io/npm/v/mni.svg?style=flat-square)](https://npmjs.com/package/mni)
-[![Compiled CSS size](https://img.shields.io/github/size/marceickhoff/mni/dist/css/main.css?label=css&color=blue&style=flat-square)](dist/css/main.css)
-[![Compiled JS size](https://img.shields.io/github/size/marceickhoff/mni/dist/js/main.js?label=js&color=blue&style=flat-square)](dist/js/main.js)
 [![npm](https://img.shields.io/npm/dt/mni.svg?style=flat-square)](https://www.npmjs.com/package/mni)
 [![Software License](https://img.shields.io/npm/l/mni.svg?style=flat-square)](LICENSE)
 
