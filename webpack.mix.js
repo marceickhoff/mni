@@ -1,4 +1,5 @@
 eval(require('./bin/util/generator')({
+	publicPath: 'docs',
 	srcStyle: 'docs/theme/src/scss/main.scss',
 	destStyle: 'docs/theme/main.css',
 	srcScript: 'docs/theme/src/js/main.js',
