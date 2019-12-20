@@ -68,9 +68,7 @@ a {
 ///   <strong>Bold text.</strong>
 ///   <span class="b">Also bold.</span>
 strong, b, .b {
-	@if $font-weight-bold != bold {
-		font-weight: $font-weight-bold;
-	}
+	font-weight: $font-weight-bold;
 }
 
 /// Emphasis/italic
