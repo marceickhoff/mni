@@ -82,19 +82,16 @@
 		}
 	}
 
-	// Nested lists
-	& {
-		padding-top: rhythm(.5);
-	}
-
 	// Different list types
 	@at-root {
+		// Nested lists
+		& & {
+			padding-top: rhythm(.5);
+			margin-left: rhythm(1);
+		}
+
 		// Basic vertical lists
 		ul#{&}, ol#{&} {
-			.list {
-				margin-left: rhythm(1);
-			}
-
 			> li {
 				&:before {
 					display: inline-block;
