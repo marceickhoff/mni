@@ -82,6 +82,11 @@
 		}
 	}
 
+	// Nested lists
+	& {
+		padding-top: rhythm(.5);
+	}
+
 	// Different list types
 	@at-root {
 		// Basic vertical lists
@@ -94,6 +99,15 @@
 				&:before {
 					display: inline-block;
 					margin-right: rhythm(1);
+				}
+			}
+
+			// No bullet points before list items
+			&.no-bullets {
+				> li {
+					&:before {
+						content: none;
+					}
 				}
 			}
 		}
