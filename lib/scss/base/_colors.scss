@@ -2,50 +2,10 @@
 // COLOR CLASSES
 //----------------------------------------------------------------------------------------------------------------------
 
-/// Base text color.
-/// @group base
-.base {
-	color: $color-base;
-}
+@include context {
+	color: $color !important;
 
-/// Primary text color.
-/// @group base
-.primary {
-	color: $color-primary;
-}
-
-/// Secondary text color.
-/// @group base
-.secondary {
-	color: $color-secondary;
-}
-
-/// Error text color.
-/// @group base
-.error {
-	color: $color-error;
-}
-
-/// Warning text color.
-/// @group base
-.warning {
-	color: $color-warning;
-}
-
-/// Success text color.
-/// @group base
-.success {
-	color: $color-success;
-}
-
-/// Notice text color.
-/// @group base
-.notice {
-	color: $color-notice;
-}
-
-/// Muted text color.
-/// @group base
-.muted {
-	color: $color-muted;
+	> * {
+		color: $color !important;
+	}
 }

@@ -19,29 +19,9 @@
 	}
 
 	// Colors
-	&.canvas {
-		color: $color-canvas;
-		border-color: $color-canvas;
-	}
-
-	&.error {
-		color: $color-error;
-		border-color: $color-error;
-	}
-
-	&.warning {
-		color: $color-warning;
-		border-color: $color-warning;
-	}
-
-	&.success {
-		color: $color-success;
-		border-color: $color-success;
-	}
-
-	&.notice {
-		color: $color-notice;
-		border-color: $color-notice;
+	@include context {
+		color: $color;
+		border-color: $color;
 	}
 
 	&.muted, &[disabled] {
@@ -54,24 +34,8 @@
 	&:hover {
 		background: rgba($color-base, 0.1);
 
-		&.canvas {
-			background: rgba($color-canvas, 0.1);
-		}
-
-		&.error {
-			background: rgba($color-error, 0.1);
-		}
-
-		&.warning {
-			background: rgba($color-warning, 0.1);
-		}
-
-		&.success {
-			background: rgba($color-success, 0.1);
-		}
-
-		&.notice {
-			background: rgba($color-notice, 0.1);
+		@include context {
+			background: rgba($color, 0.1);
 		}
 	}
 }

@@ -1,0 +1,19 @@
+@mixin context() {
+	@each $key, $colors in (
+		base: ($color-base, $color-canvas),
+		canvas: ($color-canvas, $color-base),
+		primary: ($color-primary, $color-primary-contrast),
+		secondary: ($color-secondary, $color-secondary-contrast),
+		error: ($color-error, $color-error-contrast),
+		warning: ($color-warning, $color-warning-contrast),
+		success: ($color-success, $color-success-contrast),
+		notice: ($color-notice, $color-notice-contrast),
+		muted: ($color-muted, $color-muted-contrast),
+	) {
+		&.#{$key} {
+			$color: nth($colors, 1) !global;
+			$color-contrast: nth($colors, 2) !global;
+			@content;
+		}
+	}
+}

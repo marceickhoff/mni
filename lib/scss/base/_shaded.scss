@@ -6,4 +6,8 @@
 /// @group base
 .shaded {
 	background-color: pitch($color-base, 90);
+
+	@include context {
+		background-color: pitch($color, 90);
+	}
 }
