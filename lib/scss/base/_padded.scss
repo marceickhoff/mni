@@ -10,10 +10,18 @@
 	// Medium viewport and up
 	@include media(">=", $breakpoint-m) {
 		padding: rhythm(1);
+
+		&.compact {
+			padding: rhythm(.5);
+		}
 	}
 
 	// Large viewport and up
 	@include media(">=", $breakpoint-l) {
 		padding: rhythm(2);
+
+		&.compact {
+			padding: rhythm(1);
+		}
 	}
 }
