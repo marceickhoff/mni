@@ -1,0 +1,37 @@
+//----------------------------------------------------------------------------------------------------------------------
+// CARDS
+//----------------------------------------------------------------------------------------------------------------------
+
+// Card container
+.card {
+	overflow: hidden;
+
+	> * {
+		padding: rhythm(.5);
+	}
+}
+
+// Card header (may be placed above or below image)
+.card-header {
+	@include headline;
+
+	& + .card-body {
+		padding-top: 0;
+	}
+}
+
+// Card image
+.card-image {
+	border: none;
+	padding: 0;
+	display: block;
+	width: 100%;
+}
+
+// Card main content
+.card-body {
+}
+
+// Card footer
+.card-footer {
+}
