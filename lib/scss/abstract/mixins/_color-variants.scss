@@ -1,4 +1,16 @@
-@mixin context() {
+//----------------------------------------------------------------------------------------------------------------------
+// COLOR VARIANTS
+//----------------------------------------------------------------------------------------------------------------------
+
+/// Generates classes for color variants. Exposes `$color` and `$color-contrast` variables.
+/// @example scss Usage
+///   .example {
+///     @include color-variants {
+///       color: $color-contrast;
+///       background-color: $color;
+///     }
+///   }
+@mixin color-variants() {
 	@each $key, $colors in (
 		base: ($color-base, $color-canvas),
 		canvas: ($color-canvas, $color-base),

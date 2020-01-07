@@ -52,7 +52,7 @@ $button-border-style: $border-style !default;
 		@include padding(rhythm(0.5 1));
 	}
 
-	@include context {
+	@include color-variants {
 		color: $color-contrast;
 		background: $color;
 	}
@@ -67,7 +67,7 @@ $button-border-style: $border-style !default;
 	&:hover {
 		background: pitch($color-base, 20);
 
-		@include context {
+		@include color-variants {
 			background: pitch($color, 90);
 		}
 	}

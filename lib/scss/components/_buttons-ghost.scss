@@ -19,7 +19,7 @@
 	}
 
 	// Colors
-	@include context {
+	@include color-variants {
 		color: $color;
 		border-color: $color;
 	}
@@ -34,7 +34,7 @@
 	&:hover {
 		background: rgba($color-base, 0.1);
 
-		@include context {
+		@include color-variants {
 			background: rgba($color, 0.1);
 		}
 	}

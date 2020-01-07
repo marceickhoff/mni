@@ -12,7 +12,7 @@
 	background: none;
 
 	// Colors
-	@include context {
+	@include color-variants {
 		color: $color;
 	}
 
@@ -26,7 +26,7 @@
 		color: pitch($color-base, 20);
 		background: rgba($color-base, 0.1);
 
-		@include context {
+		@include color-variants {
 			color: pitch($color, 20);
 			background: rgba($color, 0.1);
 		}

@@ -2,7 +2,7 @@
 // COLOR CLASSES
 //----------------------------------------------------------------------------------------------------------------------
 
-@include context {
+@include color-variants {
 	color: $color !important;
 
 	> * {

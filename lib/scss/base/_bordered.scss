@@ -8,7 +8,7 @@
 	@include border-padding($border-width, rhythm(1 2));
 	border: $border-width $border-style $border-color;
 
-	@include context {
+	@include color-variants {
 		border-color: $color;
 	}
 }

@@ -7,7 +7,7 @@
 .shaded {
 	background-color: pitch($color-base, 90);
 
-	@include context {
+	@include color-variants {
 		background-color: pitch($color, 90);
 	}
 }
