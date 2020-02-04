@@ -1,0 +1,18 @@
+//----------------------------------------------------------------------------------------------------------------------
+// ANIMATION HELPERS
+//----------------------------------------------------------------------------------------------------------------------
+
+// Fade in on page load
+.fade-in {
+	@keyframes fade-in {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	opacity: 0;
+	animation: $timing-duration-slow $timing-function fade-in forwards;
+}
