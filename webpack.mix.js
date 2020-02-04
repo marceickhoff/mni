@@ -1,7 +1,7 @@
 eval(require('./bin/util/generator')({
 	publicPath: 'docs',
-	srcStyle: 'docs/theme/src/scss/main.scss',
-	destStyle: 'docs/theme/main.css',
-	srcScript: 'docs/theme/src/js/main.js',
-	destScript: 'docs/theme/main.js'
+	srcStyle: 'lib/scss/main.scss',
+	destStyle: 'docs/assets/css/main.css',
+	srcScript: 'lib/js/main.js',
+	destScript: 'docs/assets/js/main.js'
 }));
