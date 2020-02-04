@@ -1,0 +1,126 @@
+//----------------------------------------------------------------------------------------------------------------------
+// FORMS
+//----------------------------------------------------------------------------------------------------------------------
+
+// Label cursor
+label {
+	cursor: pointer;
+}
+
+// Main form container
+.form {
+	@extend .container;
+}
+
+// Form row, usually with a label and an associated input field
+.form-row {
+	&:not(:first-child) {
+		margin-top: rhythm(.5);
+	}
+
+	&:not(:last-child) {
+		margin-bottom: rhythm(.5);
+	}
+
+	.input, .label {
+		display: block;
+		width: 100%;
+	}
+
+	// Google-style labels that are placed inside empty input fields and move above the input field once focused
+	&.placeholder-label {
+		position: relative;
+		padding-top: rhythm($font-size * $rhythm-ratio);
+
+		.label {
+			position: absolute;
+			top: rhythm($font-size * $rhythm-ratio);
+			padding: rhythm(.5) 0;
+			left: rhythm(.5);
+			pointer-events: none;
+		}
+
+		&.active {
+			.label {
+				top: 0;
+				padding: 0;
+				left: 0;
+				font-size: $font-size-small;
+			}
+		}
+	}
+
+	// Labels that are positioned left or right of the input field
+	&.inline-label {
+		display: grid;
+		grid-gap: rhythm(1);
+		grid-template-columns: min-content auto;
+		align-items: center;
+
+		@include supports-no("flexbox") {
+			display: table;
+			width: 100%;
+
+			> * {
+				vertical-align: middle;
+				display: table-cell;
+				width: 100%;
+			}
+
+			> *:not(.input):first-child {
+				width: 1px;
+			}
+		}
+	}
+}
+
+// General input field
+.input {
+	@include border-padding($border-width, rhythm(.5));
+	border: $border-width $border-style $border-color;
+	border-radius: 0;
+	background: $color-canvas;
+	color: inherit;
+	font: inherit;
+}
+
+// Checkboxes and radio buttons
+.checkbox, .radio {
+	position: relative;
+	background: transparent;
+	margin: 0;
+	@include size(rhythm(1));
+	cursor: pointer;
+
+	input {
+		display: none;
+
+		&:checked + .substitute {
+			&:after {
+				background: $font-color;
+			}
+		}
+	}
+
+	// Visual substitute for disabled input element
+	.substitute {
+		@include border-padding($border-width, rhythm(.5));
+		border: $border-width $border-style $border-color;
+		position: absolute;
+		padding: 2px;
+		@include size(100%);
+
+		&:after {
+			content: '';
+			display: block;
+			@include size(100%);
+		}
+	}
+}
+
+// Special rules for radio buttons
+.radio {
+	.substitute, .substitute:after {
+		border-radius: rhythm(1);
+	}
+}
