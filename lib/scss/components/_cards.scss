@@ -11,6 +11,11 @@
 	}
 }
 
+// Card elements
+.card-header, .card-image, .card-body, .card-footer {
+	width: 100%;
+}
+
 // Card header (may be placed above or below image)
 .card-header {
 	& + .card-body {
@@ -23,7 +28,6 @@
 	border: none;
 	padding: 0;
 	display: block;
-	width: 100%;
 }
 
 // Card main content
