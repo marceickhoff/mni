@@ -13,8 +13,6 @@
 
 // Card header (may be placed above or below image)
 .card-header {
-	@include headline;
-
 	& + .card-body {
 		padding-top: 0;
 	}
@@ -30,8 +28,10 @@
 
 // Card main content
 .card-body {
+	// Empty
 }
 
 // Card footer
 .card-footer {
+	// Empty
 }
