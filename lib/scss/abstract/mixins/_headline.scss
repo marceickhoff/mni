@@ -22,6 +22,6 @@
 		font-weight: $font-weight-headline;
 	}
 	@if $color != $font-color {
-		color: $font-color-headline,
+		color: $color,
 	}
 }
