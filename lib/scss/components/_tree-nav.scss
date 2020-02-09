@@ -1,0 +1,51 @@
+//----------------------------------------------------------------------------------------------------------------------
+// VERTICAL TREE NAVIGATION
+//----------------------------------------------------------------------------------------------------------------------
+
+// Main container
+.tree-nav {
+	// Empty
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// NAV LIST
+//
+// Listing of menu items.
+//----------------------------------------------------------------------------------------------------------------------
+
+// Nav list
+.tree-nav-list {
+	// Empty
+}
+
+// Single nav list item
+.tree-nav-list {
+	.tree-nav-list {
+		padding-left: rhythm(1);
+		.tree-nav-list {
+			> .tree-nav-item {
+				> .tree-nav-link {
+					padding-left: rhythm(1);
+				}
+			}
+		}
+	}
+
+	// First level
+	@at-root {
+		.tree-nav {
+			> .tree-nav-list {
+				> .tree-nav-item {
+					> .tree-nav-link {
+						padding: rhythm(.5) 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Link inside a nav list item
+.tree-nav-link {
+	display: block;
+}
