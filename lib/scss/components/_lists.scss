@@ -26,21 +26,6 @@
 ///     <dd>Descriptive list data</dd>
 ///   </dl>
 .list {
-	// List items have padding by default
-	// This behaviour can be disabled by adding the `.compact` class
-	&:not(.compact) {
-		> * {
-			@include padding(rhythm(0.5) null);
-		}
-
-		> dt {
-			padding-bottom: 0;
-		}
-
-		> dd {
-			padding-top: 0;
-		}
-	}
 
 	// Bordered lists will display horizontal lines between items
 	&.bordered {
@@ -92,10 +77,12 @@
 
 		// Basic vertical lists
 		ul#{&}, ol#{&} {
+			padding-left: rhythm(1);
 			> li {
 				&:before {
+					position: absolute;
 					display: inline-block;
-					margin-right: rhythm(1);
+					margin-left: rhythm(-1);
 				}
 			}
 
