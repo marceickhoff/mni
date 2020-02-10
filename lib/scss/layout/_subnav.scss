@@ -7,7 +7,6 @@
 .subnav {
 	overflow: hidden;
 	height: 0;
-	@include transition(height);
 
 	&.active {
 		height: auto;
