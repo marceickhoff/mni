@@ -95,6 +95,11 @@ $nav-hamburger-bar-height: rem(3px) !default;
 	.wrapper {
 		position: relative;
 		display: flex;
+		height: 100%;
+
+		@include media("<", $breakpoint-switch) {
+			@include padding(null $nav-hamburger-width + rhythm(1));
+		}
 
 		@if $nav-drawer-behind != true {
 			z-index: 1;
@@ -107,6 +112,11 @@ $nav-hamburger-bar-height: rem(3px) !default;
 //----------------------------------------------------------------------------------------------------------------------
 
 .nav-logo { // Usually an "<a>" element
+	display: block;
+	height: 100%;
+	padding: rhythm(.5);
+	margin: 0 auto;
+
 	img, picture {
 		display: block;
 		height: 100%;
@@ -121,8 +131,9 @@ $nav-hamburger-bar-height: rem(3px) !default;
 
 // Button
 .nav-toggle {
-	position: relative;
+	position: absolute;
 	display: block;
+	left: 0;
 	@include size($nav-hamburger-width + rhythm(2), $nav-height); // Width plus padding
 	@include margin(null rhythm(-1)); // Compensate extra padding
 	overflow: visible;
