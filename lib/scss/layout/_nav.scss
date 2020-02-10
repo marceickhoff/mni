@@ -200,6 +200,8 @@ $nav-hamburger-bar-height: rem(3px) !default;
 .nav-list {
 	@include media("<", $breakpoint-switch) {
 		display: block;
+		overflow-y: auto;
+		max-height: 100%;
 	}
 
 	@include media(">=", $breakpoint-switch) {
