@@ -4,7 +4,23 @@
 
 // Main container
 .pagination {
-	// Empty
+
+	// Alignment modifiers
+	&.left {
+		.pagination-list {
+			@extend .left;
+		}
+	}
+	&.right {
+		.pagination-list {
+			@extend .right;
+		}
+	}
+	&.center {
+		.pagination-list {
+			@extend .center;
+		}
+	}
 }
 
 // List of pagination links
