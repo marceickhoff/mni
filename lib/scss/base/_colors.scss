@@ -3,9 +3,5 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 @include color-variants {
-	color: $color !important;
-
-	> * {
-		color: $color !important;
-	}
+	color: $color;
 }
