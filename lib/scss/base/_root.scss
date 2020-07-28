@@ -6,5 +6,5 @@
 /// @group base
 :root {
 	font-size: $font-size-root; // For rem calculations
-	line-height: $rhythm-ratio;
+	line-height: strip-unit(rhythm($font-size-root * $rhythm-ratio)) * $font-size-root;
 }
