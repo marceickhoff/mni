@@ -6,5 +6,5 @@
 /// @group base
 :root {
 	font-size: $font-size-root; // For rem calculations
-	line-height: rhythm($font-size * $rhythm-ratio);
+	line-height: $rhythm-ratio;
 }
