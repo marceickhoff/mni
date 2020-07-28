@@ -68,7 +68,7 @@ $button-border-style: $border-style !default;
 		background: pitch($color-base, 20);
 
 		@include color-variants {
-			background: pitch($color, 90);
+			background: pitch($color, 10);
 		}
 	}
 }
