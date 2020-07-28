@@ -32,13 +32,15 @@
 		text-align: inherit;
 	}
 
-	td {
+	th, td {
 		@include padding(rhythm(.5) rhythm(1))
 	}
 
 	// Compact modifier (reduces cell padding)
 	&.compact {
-		@include padding(rhythm(.5))
+		th, td {
+			@include padding(0 rhythm(.5))
+		}
 	}
 
 	// Removes left and right padding
@@ -56,7 +58,7 @@
 	// Alternating background on table rows
 	&.alternate {
 		tr:nth-child(odd) {
-			& > td {
+			& > td, & > th {
 				background-color: tint($color-base, 95);
 			}
 		}
