@@ -54,7 +54,7 @@ label {
 	&.inline-label {
 		display: grid;
 		grid-gap: rhythm(1);
-		grid-template-columns: min-content auto;
+		grid-template-columns: auto auto;
 		align-items: center;
 
 		@include supports-no("flexbox") {
