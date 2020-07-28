@@ -8,7 +8,7 @@
 	@extend %viewport-padding;
 
 	// Shaded content block
-	&.shadedr {
+	&.shaded {
 		background: pitch($color-base, 90);
 	}
 
