@@ -52,6 +52,12 @@ $button-border-style: $border-style !default;
 		@include padding(rhythm(0.5 1));
 	}
 
+	// Full width button
+	&.fluid {
+		display: block;
+		text-align: center;
+	}
+
 	@include color-variants {
 		color: $color-contrast;
 		background: $color;
