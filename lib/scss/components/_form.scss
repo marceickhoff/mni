@@ -95,9 +95,10 @@ select.input {
 .checkbox, .radio {
 	position: relative;
 	background: transparent;
-	margin: 0;
+	margin: (rhythm($rhythm-ratio * 1rem) - rhythm(1)) / 2 0;
 	@include size(rhythm(1));
 	cursor: pointer;
+	align-self: baseline;
 
 	input {
 		display: none;
