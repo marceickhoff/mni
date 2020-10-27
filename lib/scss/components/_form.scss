@@ -52,10 +52,12 @@ label {
 
 	// Labels that are positioned left or right of the input field
 	&.inline-label {
-		display: grid;
-		grid-gap: rhythm(1);
-		grid-template-columns: auto auto;
+		display: flex;
 		align-items: center;
+
+		> *:not(:first-child) {
+			margin-left: rhythm(1);
+		}
 
 		@include supports-no("flexbox") {
 			display: table;
