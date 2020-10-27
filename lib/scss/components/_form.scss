@@ -84,6 +84,11 @@ label {
 	font: inherit;
 }
 
+// Select fields
+select.input {
+	height: rhythm($rhythm-ratio * 1rem) + rhythm(1);
+}
+
 // Checkboxes and radio buttons
 .checkbox, .radio {
 	position: relative;
