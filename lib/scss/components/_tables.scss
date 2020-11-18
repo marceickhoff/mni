@@ -27,6 +27,8 @@
 ///     </tbody>
 ///   </table>
 .table {
+	display: table;
+
 	th {
 		font-weight: $font-weight-bold;
 		text-align: inherit;
