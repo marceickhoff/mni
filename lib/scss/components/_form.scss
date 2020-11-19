@@ -117,7 +117,7 @@ select.input {
 		display: block;
 		margin: (rhythm($rhythm-ratio * 1rem) - rhythm(1)) / 2 0;
 		padding: 2px;
-		@include size(100%);
+		@include size(inherit);
 
 		&:after {
 			content: '';
