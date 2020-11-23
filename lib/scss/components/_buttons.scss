@@ -46,6 +46,7 @@ $button-border-style: $border-style !default;
 	color: $color-canvas;
 	border: none;
 	background: $color-base;
+	display: inline-block;
 
 	// Compact ("small") button
 	&.compact {
