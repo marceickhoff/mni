@@ -47,6 +47,7 @@ $button-border-style: $border-style !default;
 	border: none;
 	background: $color-base;
 	display: inline-block;
+	white-space: nowrap;
 
 	// Compact ("small") button
 	&.compact {
