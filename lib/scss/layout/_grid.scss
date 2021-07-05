@@ -43,33 +43,23 @@
 		}
 	}
 
-
-	// It is far more efficient to include the width property for all browsers and unset it again on browsers that do
-	// support grids instead of generating different sets of statements for supporting and non-supporting browsers.
-	@include supports("cssgrid") {
-		> [class^="cell-"] {
-			width: unset;
-		}
-	}
-
-
 	// Viewport sizes
 	@each $size, $values in (
-		"s": (
-			$grid-gap,
-			$grid-gap-s,
-			$breakpoint-s
-		),
-		"m": (
-			$grid-gap-s,
-			$grid-gap-m,
-			$breakpoint-m
-		),
-		"l": (
-			$grid-gap-m,
-			$grid-gap-l,
-			$breakpoint-l
-		)
+			"s": (
+					$grid-gap,
+					$grid-gap-s,
+					$breakpoint-s
+			),
+			"m": (
+					$grid-gap-s,
+					$grid-gap-m,
+					$breakpoint-m
+			),
+			"l": (
+					$grid-gap-m,
+					$grid-gap-l,
+					$breakpoint-l
+			)
 	) {
 		@if nth($values, 2) > nth($values, 1) {
 			@include media(">=", nth($values, 3)) {
@@ -114,22 +104,32 @@
 @for $i from 1 through $grid-columns {
 	.cell-#{$i} {
 		grid-column-end: span $i;
-		width: $i / $grid-columns * 100%; // Width property for non-supporting browsers, see above
+
+		@include supports-no("cssgrid") {
+			> [class^="cell-"] {
+				width: $i / $grid-columns * 100%;
+			}
+		}
 	}
 }
 
 // Other viewports
 @each $size, $breakpoint in (
-	"s": $breakpoint-s,
-	"m": $breakpoint-m,
-	"l": $breakpoint-l,
-	"switch": $breakpoint-switch
+		"s": $breakpoint-s,
+		"m": $breakpoint-m,
+		"l": $breakpoint-l,
+		"switch": $breakpoint-switch
 ) {
 	@include media(">=", $breakpoint) {
 		@for $i from 1 through $grid-columns {
 			.cell-#{$size}-#{$i} {
 				grid-column-end: span $i;
-				width: $i / $grid-columns * 100%;
+
+				@include supports-no("cssgrid") {
+					> [class^="cell-"] {
+						width: $i / $grid-columns * 100%;
+					}
+				}
 			}
 		}
 	}
