@@ -73,6 +73,7 @@ $button-border-style: $border-style !default;
 
 	// States
 	&:hover {
+		color: $color-canvas;
 		background: pitch($color-base, 20);
 
 		@include color-variants {
