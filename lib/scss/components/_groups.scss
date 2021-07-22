@@ -31,16 +31,35 @@
 	}
 
 	// Alignment modifiers
-	&.left {
-		justify-content: flex-start;
+	&:not(.vertical) {
+		&.left {
+			justify-content: flex-start;
+		}
+
+		&.right {
+			justify-content: flex-end;
+		}
+
+		&.center {
+			justify-content: center;
+		}
 	}
 
-	&.right {
-		justify-content: flex-end;
-	}
+	// Vertical
+	&.vertical {
+		flex-flow: column;
 
-	&.center {
-		justify-content: center;
+		&.left {
+			align-items: flex-start;
+		}
+
+		&.right {
+			align-items: flex-end;
+		}
+
+		&.center {
+			align-items: center;
+		}
 	}
 
 	// Conditional alignment modifiers
